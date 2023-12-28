@@ -7,45 +7,82 @@ import htmlImage from "../../Assets/html.png";
 import cssImage from "../../Assets/css.png";
 const Main = styled.div`
   width: 100%;
-  height: 1000px;
+
   margin: auto;
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: auto auto;
   position: relative;
   overflow-x: hidden;
+  justify-content: space-around;
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: 47% 53%;
+  }
+  @media only screen and (max-width: 1200px) {
+    grid-template-columns: 40% 60%;
+    height: 1000px;
+  }
 `;
 const Text = styled.div`
-  width: 450px;
+  width: 75%;
   margin: auto;
 `;
 const Graphics = styled.div`
   height: 1000px;
+  @media only screen and (min-width: 1200px) {
+  }
 `;
 const BigCircle = styled.div`
   border: solid 1px #373a40;
-  width: 1500px;
-  height: 1500px;
   border-radius: 1500px;
   position: absolute;
-  top: -300px;
+
+  @media only screen and (min-width: 1200px) {
+    width: 1200px;
+    height: 1200px;
+    top: -200px;
+    left: 700px;
+  }
+  @media only screen and (max-width: 1200px) {
+    width: 1500px;
+    height: 1500px;
+    top: -300px;
+  }
 `;
 const SmallCircle = styled.div`
   border: solid 1px #373a40;
-  width: 800px;
-  height: 800px;
   border-radius: 800px;
   position: absolute;
   top: 400px;
-  left: 300px;
+  @media only screen and (min-width: 1200px) {
+    width: 500px;
+    height: 500px;
+    left: 230px;
+  }
+  @media only screen and (max-width: 1200px) {
+    width: 800px;
+    height: 800px;
+
+    left: 300px;
+  }
 `;
 const JavascriptText = styled.div`
   font-size: 44px;
   font-weight: 900;
   color: #e6b419;
-  filter: blur(5px);
+
   position: absolute;
-  bottom: 350px;
+
   left: -120px;
+  @media only screen and (min-width: 1200px) {
+    font-size: 30px;
+    bottom: 200px;
+    filter: blur(3px);
+  }
+  @media only screen and (max-width: 1200px) {
+    filter: blur(5px);
+    font-size: 44px;
+    bottom: 350px;
+  }
 `;
 const SassText = styled.div`
   font-size: 55px;
@@ -55,81 +92,156 @@ const SassText = styled.div`
   position: absolute;
   left: 650px;
   top: 80px;
+  @media only screen and (min-width: 1200px) {
+    font-size: 40px;
+    filter: blur(3px);
+    left: 400px;
+    top: 50px;
+  }
+  @media only screen and (max-width: 1200px) {
+    font-size: 55px;
+    filter: blur(5px);
+    left: 650px;
+    top: 80px;
+  }
 `;
 const CssText = styled.div`
-  font-size: 55px;
   font-weight: 900;
   color: #619ae8;
-  filter: blur(5px);
+
   position: absolute;
   bottom: 350px;
   left: 750px;
+  @media only screen and (min-width: 1200px) {
+    filter: blur(3px);
+    font-size: 40px;
+    bottom: 200px;
+    left: 450px;
+  }
+  @media only screen and (max-width: 1200px) {
+    font-size: 55px;
+    filter: blur(5px);
+    bottom: 350px;
+    left: 750px;
+  }
 `;
 const HtmlText = styled.div`
-  font-size: 55px;
   font-weight: 900;
   color: #c1590e;
-  filter: blur(5px);
   position: absolute;
-  bottom: -35px;
-  left: 350px;
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 40px;
+    filter: blur(3px);
+    bottom: -34px;
+    left: 200px;
+  }
+  @media only screen and (max-width: 1200px) {
+    font-size: 55px;
+    filter: blur(5px);
+    bottom: -35px;
+    left: 350px;
+  }
 `;
 const ReactImage = styled.img`
-  width: 142px;
   position: absolute;
-  top: 150px;
-  left: -30px;
+  @media only screen and (min-width: 1200px) {
+    width: 90px;
+    top: 90px;
+    left: -15px;
+  }
+  @media only screen and (max-width: 1200px) {
+    width: 142px;
+    top: 150px;
+    left: -30px;
+  }
 `;
 const SassImage = styled.img`
-  width: 142px;
   position: absolute;
-  bottom: 20px;
-  left: 100px;
+
+  @media only screen and (min-width: 1200px) {
+    width: 90px;
+    bottom: 50px;
+    left: 30px;
+  }
+  @media only screen and (max-width: 1200px) {
+    width: 142px;
+    bottom: 20px;
+    left: 100px;
+  }
 `;
 const Avatar = styled.img`
   display: block;
 
-  width: 650px;
   margin: auto;
-  margin-top: 150px;
+
+  @media only screen and (min-width: 1200px) {
+    width: 450px;
+    margin-top: 90px;
+  }
+  @media only screen and (max-width: 1200px) {
+    width: 650px;
+    margin-top: 150px;
+  }
 `;
 const Javascript = styled.img`
-  width: 191px;
   position: absolute;
   top: 400px;
   left: -70px;
+  @media only screen and (min-width: 1200px) {
+    width: 120px;
+  }
+  @media only screen and (max-width: 1200px) {
+    width: 191px;
+  }
 `;
 const Html = styled.img`
   position: absolute;
-  width: 96px;
-  bottom: 635px;
-  left: -50px;
+
+  @media only screen and (min-width: 1200px) {
+    width: 70px;
+    bottom: 500px;
+    left: -30px;
+  }
+  @media only screen and (max-width: 1200px) {
+    width: 96px;
+    bottom: 635px;
+    left: -50px;
+  }
 `;
 const Css = styled.img`
-  width: 211px;
   position: absolute;
   bottom: 200px;
   left: 50px;
+  @media only screen and (min-width: 1200px) {
+    width: 120px;
+  }
+  @media only screen and (max-width: 1200px) {
+    width: 211px;
+  }
 `;
 const Line = styled.span`
   background-color: white;
 `;
 const Title = styled.h1`
-  font-size: 35px;
+  font-size: 40px;
 `;
 const Gradient = styled.span`
   background: linear-gradient(to right, #b49263, #6e2d9f);
   color: transparent;
   -webkit-background-clip: text;
 `;
-const Paragraph = styled.p``;
+const Paragraph = styled.p`
+  color: #8c8c8c;
+`;
 const ContactButton = styled.button`
   width: 150px;
   height: 50px;
-  color: white;
+  color: #cdcdcd;
   background-color: #713c98;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
+  margin-top: 20px;
   &:hover {
     background-color: #8d49bd;
     cursor: pointer;
