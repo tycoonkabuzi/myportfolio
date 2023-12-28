@@ -1,9 +1,11 @@
 import Header from "../../Components/Header";
+import styled from "styled-components";
+const Main = styled.div``;
 function Home() {
   return (
-    <div>
+    <Main>
       <Header />
-    </div>
+    </Main>
   );
 }
 export default Home;
