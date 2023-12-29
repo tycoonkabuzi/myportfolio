@@ -5,8 +5,17 @@ import avatar from "../../Assets/graphic.svg";
 import javascriptImage from "../../Assets/javascript.png";
 import htmlImage from "../../Assets/html.png";
 import cssImage from "../../Assets/css.png";
+import cssBlack from "../../Assets/cssblack.png";
+import htmlBlack from "../../Assets/htmlblack.png";
+import javascriptBlack from "../../Assets/jsblack.png";
+import reactColor from "../../Assets/reactColor.png";
+import sassColor from "../../Assets/sassColor.png";
+import avatarWhite from "../../Assets/graphicWhite.svg";
 const Main = styled.div`
   width: 100%;
+  transition: background-color 0.3s ease-in-out;
+  background-color: ${(props) =>
+    props.propsTheme === true ? `#eeeeee` : `#1f252f`};
 
   margin: auto;
   display: grid;
@@ -32,7 +41,8 @@ const Graphics = styled.div`
   }
 `;
 const BigCircle = styled.div`
-  border: solid 1px #373a40;
+  border: solid 1px
+    ${(props) => (props.propsTheme === true ? `#dadada` : `#373a40`)};
   border-radius: 1500px;
   position: absolute;
 
@@ -49,7 +59,8 @@ const BigCircle = styled.div`
   }
 `;
 const SmallCircle = styled.div`
-  border: solid 1px #373a40;
+  border: solid 1px
+    ${(props) => (props.propsTheme === true ? `#dadada` : `#373a40`)};
   border-radius: 800px;
   position: absolute;
   top: 400px;
@@ -172,7 +183,6 @@ const SassImage = styled.img`
 `;
 const Avatar = styled.img`
   display: block;
-
   margin: auto;
 
   @media only screen and (min-width: 1200px) {
@@ -221,10 +231,16 @@ const Css = styled.img`
   }
 `;
 const Line = styled.span`
-  background-color: white;
+  display: block;
+  transition: background-color 0.3s ease-in-out;
+  background-color: ${(props) =>
+    props.propsTheme === true ? `#1f252f` : `white`};
+  width: 100px;
+  height: 2px;
 `;
 const Title = styled.h1`
   font-size: 40px;
+  color: ${(props) => (props.propsTheme === true ? ` #1f252f` : `white`)};
 `;
 const Gradient = styled.span`
   background: linear-gradient(to right, #b49263, #6e2d9f);
@@ -237,7 +253,7 @@ const Paragraph = styled.p`
 const ContactButton = styled.button`
   width: 150px;
   height: 50px;
-  color: #cdcdcd;
+  color: ${(props) => (props.propsTheme === true ? `#ffffff` : ``)};
   background-color: #713c98;
   border: none;
   border-radius: 20px;
@@ -247,12 +263,13 @@ const ContactButton = styled.button`
     cursor: pointer;
   }
 `;
-function Header() {
+function Header({ theme, setTheme }) {
+  const propsTheme = theme;
   return (
-    <Main>
+    <Main propsTheme={propsTheme}>
       <Text>
-        <Line></Line>
-        <Title>
+        <Line propsTheme={propsTheme}></Line>
+        <Title propsTheme={propsTheme}>
           I’m Kabuzi Ntwali, a<Gradient> Front-end</Gradient> Developper
         </Title>
         <Paragraph>
@@ -260,16 +277,25 @@ function Header() {
           have people patinated by this job which helped us to bring the best in
           us
         </Paragraph>
-        <ContactButton>Contact me</ContactButton>
+        <ContactButton propsTheme>Contact me</ContactButton>
       </Text>
       <Graphics>
-        <BigCircle>
-          <Javascript src={javascriptImage} alt=" javascript logo image" />
-          <Html src={htmlImage} alt="Html logo image" />
-          <Css src={cssImage} alt="css logo image" />
-          <SmallCircle>
+        <BigCircle propsTheme={propsTheme}>
+          <Javascript
+            src={theme === true ? javascriptBlack : javascriptImage}
+            alt=" javascript logo image"
+          />
+          <Html
+            src={theme === true ? htmlBlack : htmlImage}
+            alt="Html logo image"
+          />
+          <Css
+            src={theme === true ? cssBlack : cssImage}
+            alt="css logo image"
+          />
+          <SmallCircle propsTheme={propsTheme}>
             <Avatar
-              src={avatar}
+              src={theme ? avatarWhite : avatar}
               alt="man working on a computer, coding to be specific with a monitor displaying his work"
             />
             <JavascriptText>Javascript</JavascriptText>
@@ -277,10 +303,13 @@ function Header() {
             <CssText>Css</CssText>
             <HtmlText>Html</HtmlText>
             <ReactImage
-              src={reactImage}
+              src={theme == true ? reactColor : reactImage}
               alt=" logo of react, the framewark react.js"
             />
-            <SassImage src={sassImage} alt="logo of sass " />
+            <SassImage
+              src={theme == true ? sassColor : sassImage}
+              alt="logo of sass "
+            />
           </SmallCircle>
         </BigCircle>
       </Graphics>
