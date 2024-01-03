@@ -1,26 +1,25 @@
 import Header from "../../Components/Header";
 import styled from "styled-components";
 import Nav from "../../Components/Nav";
-import { useEffect, useState } from "react";
-const Main = styled.div`
-  background-color: red;
-`;
+import { useContext } from "react";
+import { ThemeContext } from "../../utilities/context";
+import { useEffect } from "react";
+const Main = styled.div``;
 function Home() {
-  const [theme, setTheme] = useState(false);
   const time = new Date();
   const hours = time.getHours();
-
+  const { setTheme } = useContext(ThemeContext);
   useEffect(() => {
     if (hours >= 8 && hours < 16) {
       setTheme(true);
     } else {
       setTheme(false);
     }
-  }, [hours]);
+  }, [hours, setTheme]);
   return (
     <Main>
-      <Nav theme={theme} setTheme={setTheme} />
-      <Header theme={theme} setTheme={setTheme} />
+      <Nav />
+      <Header />
     </Main>
   );
 }

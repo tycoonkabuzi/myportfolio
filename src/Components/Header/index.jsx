@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../utilities/context";
 import styled from "styled-components";
 import reactImage from "../../Assets/react.png";
 import sassImage from "../../Assets/sass.png";
@@ -14,9 +16,6 @@ import avatarWhite from "../../Assets/graphicWhite.svg";
 const Main = styled.div`
   width: 100%;
   transition: background-color 0.3s ease-in-out;
-  background-color: ${(props) =>
-    props.propsTheme === true ? `#eeeeee` : `#1f252f`};
-
   margin: auto;
   display: grid;
   grid-template-columns: auto auto;
@@ -60,7 +59,7 @@ const BigCircle = styled.div`
 `;
 const SmallCircle = styled.div`
   border: solid 1px
-    ${(props) => (props.propsTheme === true ? `#dadada` : `#373a40`)};
+    ${(props) => (props.propstheme === true ? `#dadada` : `#373a40`)};
   border-radius: 800px;
   position: absolute;
   top: 400px;
@@ -234,13 +233,13 @@ const Line = styled.span`
   display: block;
   transition: background-color 0.3s ease-in-out;
   background-color: ${(props) =>
-    props.propsTheme === true ? `#1f252f` : `white`};
+    props.propstheme === true ? `#1f252f` : `white`};
   width: 100px;
   height: 2px;
 `;
 const Title = styled.h1`
   font-size: 40px;
-  color: ${(props) => (props.propsTheme === true ? ` #1f252f` : `white`)};
+  color: ${(props) => (props.propstheme === true ? ` #1f252f` : `white`)};
 `;
 const Gradient = styled.span`
   background: linear-gradient(to right, #b49263, #6e2d9f);
@@ -253,7 +252,7 @@ const Paragraph = styled.p`
 const ContactButton = styled.button`
   width: 150px;
   height: 50px;
-  color: ${(props) => (props.propsTheme === true ? `#ffffff` : ``)};
+  color: ${(props) => (props.propstheme === true ? `#ffffff` : ``)};
   background-color: #713c98;
   border: none;
   border-radius: 20px;
@@ -263,13 +262,13 @@ const ContactButton = styled.button`
     cursor: pointer;
   }
 `;
-function Header({ theme, setTheme }) {
-  const propsTheme = theme;
+function Header() {
+  const { theme } = useContext(ThemeContext);
   return (
-    <Main propsTheme={propsTheme}>
+    <Main propstheme={theme}>
       <Text>
-        <Line propsTheme={propsTheme}></Line>
-        <Title propsTheme={propsTheme}>
+        <Line propstheme={theme}></Line>
+        <Title propstheme={theme}>
           I’m Kabuzi Ntwali, a<Gradient> Front-end</Gradient> Developper
         </Title>
         <Paragraph>
@@ -277,10 +276,10 @@ function Header({ theme, setTheme }) {
           have people patinated by this job which helped us to bring the best in
           us
         </Paragraph>
-        <ContactButton propsTheme>Contact me</ContactButton>
+        <ContactButton propstheme>Contact me</ContactButton>
       </Text>
       <Graphics>
-        <BigCircle propsTheme={propsTheme}>
+        <BigCircle propstheme={theme}>
           <Javascript
             src={theme === true ? javascriptBlack : javascriptImage}
             alt=" javascript logo image"
@@ -293,7 +292,7 @@ function Header({ theme, setTheme }) {
             src={theme === true ? cssBlack : cssImage}
             alt="css logo image"
           />
-          <SmallCircle propsTheme={propsTheme}>
+          <SmallCircle propsTheme={theme}>
             <Avatar
               src={theme ? avatarWhite : avatar}
               alt="man working on a computer, coding to be specific with a monitor displaying his work"
@@ -303,11 +302,11 @@ function Header({ theme, setTheme }) {
             <CssText>Css</CssText>
             <HtmlText>Html</HtmlText>
             <ReactImage
-              src={theme == true ? reactColor : reactImage}
+              src={theme === true ? reactColor : reactImage}
               alt=" logo of react, the framewark react.js"
             />
             <SassImage
-              src={theme == true ? sassColor : sassImage}
+              src={theme === true ? sassColor : sassImage}
               alt="logo of sass "
             />
           </SmallCircle>

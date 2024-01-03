@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import moon from "../../Assets/moon.png";
 import sun from "../../Assets/sun.png";
-import { useState } from "react";
-
+import { useContext } from "react";
+import { ThemeContext } from "../../utilities/context";
 const Name = "<Kabuzi_Ntwali/>";
 const Main = styled.div`
   color: white;
@@ -74,28 +74,23 @@ const Moon = styled.img`
   top: 5px;
   ${(props) => (props.propsTheme === true ? `right:45px;` : `right:10px;`)}
 `;
-function Nav({ theme, setTheme }) {
-  const propsTheme = theme;
-
+function Nav() {
+  const { theme, setTheme } = useContext(ThemeContext);
   function handleCircle() {
     setTheme(!theme);
   }
   return (
     <Main>
-      <Logo propsTheme={propsTheme}>{Name}</Logo>
+      <Logo propsTheme={theme}>{Name}</Logo>
       <MainLinks>
-        <Links propsTheme={propsTheme}>Home</Links>
-        <Links propsTheme={propsTheme}>About</Links>
-        <Links propsTheme={propsTheme}>Projects</Links>
+        <Links propsTheme={theme}>Home</Links>
+        <Links propsTheme={theme}>About</Links>
+        <Links propsTheme={theme}>Projects</Links>
       </MainLinks>
-      <ThemeChanger onClick={handleCircle} propsTheme={propsTheme}>
-        <Circle propsTheme={propsTheme}>
-          <Sun propsTheme={propsTheme} src={sun} alt=" small icon of the sun" />
-          <Moon
-            propsTheme={propsTheme}
-            src={moon}
-            alt="small icon of the moon"
-          />
+      <ThemeChanger onClick={handleCircle} propsTheme={theme}>
+        <Circle propsTheme={theme}>
+          <Sun propsTheme={theme} src={sun} alt=" small icon of the sun" />
+          <Moon propsTheme={theme} src={moon} alt="small icon of the moon" />
         </Circle>
       </ThemeChanger>
     </Main>

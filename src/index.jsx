@@ -2,23 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./Pages/Home";
-import { createGlobalStyle } from "styled-components";
-const GlobalStyle = createGlobalStyle`
- body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+import GlobalStyle from "./utilities/style/GlobalStyle";
+import { ThemeProvider } from "./utilities/context";
 
-    color: white;
-    font-family: 'Poppins', sans-serif;
-  }
-`;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <Home />
+    <ThemeProvider>
+      <GlobalStyle />
+      <Home />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
