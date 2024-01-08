@@ -13,6 +13,7 @@ import javascriptBlack from "../../Assets/jsblack.png";
 import reactColor from "../../Assets/reactColor.png";
 import sassColor from "../../Assets/sassColor.png";
 import avatarWhite from "../../Assets/graphicWhite.svg";
+import colors from "../../utilities/style/Colors";
 const Main = styled.div`
   width: 100%;
   transition: background-color 0.3s ease-in-out;
@@ -41,7 +42,10 @@ const Graphics = styled.div`
 `;
 const BigCircle = styled.div`
   border: solid 1px
-    ${(props) => (props.propsTheme === true ? `#dadada` : `#373a40`)};
+    ${(props) =>
+      props.propsTheme === true
+        ? `${colors.circleWhite}`
+        : `${colors.circleDark}`};
   border-radius: 1500px;
   position: absolute;
 
@@ -59,7 +63,10 @@ const BigCircle = styled.div`
 `;
 const SmallCircle = styled.div`
   border: solid 1px
-    ${(props) => (props.propstheme === true ? `#dadada` : `#373a40`)};
+    ${(props) =>
+      props.propstheme === true
+        ? `${colors.circleWhite}`
+        : `${colors.circleDark}`};
   border-radius: 800px;
   position: absolute;
   top: 400px;
@@ -78,7 +85,7 @@ const SmallCircle = styled.div`
 const JavascriptText = styled.div`
   font-size: 44px;
   font-weight: 900;
-  color: #e6b419;
+  color: ${colors.javascriptColor};
 
   position: absolute;
 
@@ -97,7 +104,7 @@ const JavascriptText = styled.div`
 const SassText = styled.div`
   font-size: 55px;
   font-weight: 900;
-  color: #ae69e0;
+  color: ${colors.primaryPurpule};
   filter: blur(5px);
   position: absolute;
   left: 650px;
@@ -117,7 +124,7 @@ const SassText = styled.div`
 `;
 const CssText = styled.div`
   font-weight: 900;
-  color: #619ae8;
+  color: ${colors.cssColor};
 
   position: absolute;
   bottom: 350px;
@@ -137,7 +144,7 @@ const CssText = styled.div`
 `;
 const HtmlText = styled.div`
   font-weight: 900;
-  color: #c1590e;
+  color: ${colors.htmlColor};
   position: absolute;
 
   @media only screen and (min-width: 1200px) {
@@ -233,26 +240,27 @@ const Line = styled.span`
   display: block;
   transition: background-color 0.3s ease-in-out;
   background-color: ${(props) =>
-    props.propstheme === true ? `#1f252f` : `white`};
+    props.propstheme === true ? `${colors.primary}` : `${colors.secondary}`};
   width: 100px;
   height: 2px;
 `;
 const Title = styled.h1`
   font-size: 40px;
-  color: ${(props) => (props.propstheme === true ? ` #1f252f` : `white`)};
+  color: ${(props) =>
+    props.propstheme === true ? ` ${colors.primary}` : `${colors.secondary}`};
 `;
 const Gradient = styled.span`
-  background: linear-gradient(to right, #b49263, #6e2d9f);
+  background: ${colors.gradient};
   color: transparent;
   -webkit-background-clip: text;
 `;
 const Paragraph = styled.p`
-  color: #8c8c8c;
+  color: ${colors.paragraphColorWhite};
 `;
 const ContactButton = styled.button`
   width: 150px;
   height: 50px;
-  color: ${(props) => (props.propstheme === true ? `#ffffff` : ``)};
+  color: white;
   background-color: #713c98;
   border: none;
   border-radius: 20px;
