@@ -27,8 +27,7 @@ const Logo = styled.h3`
     props.propsTheme === true ? `color:${colors.primary};` : `color:white;`}
 `;
 const MainLinks = styled.ul`
-  width: 300px;
-
+  width: auto;
   margin: auto;
 `;
 const Links = styled.li`
@@ -92,7 +91,8 @@ function Nav() {
       <MainLinks>
         <Links propsTheme={theme}>Home</Links>
         <Links propsTheme={theme}>About</Links>
-        <Links propsTheme={theme}>Projects</Links>
+        <Links propsTheme={theme}>Portfolio</Links>
+        <Links propsTheme={theme}>Experience</Links>
       </MainLinks>
       <ThemeChanger onClick={handleCircle} propsTheme={theme}>
         <Circle propsTheme={theme}>

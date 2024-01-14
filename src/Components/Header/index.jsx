@@ -14,6 +14,7 @@ import reactColor from "../../Assets/reactColor.png";
 import sassColor from "../../Assets/sassColor.png";
 import avatarWhite from "../../Assets/graphicWhite.svg";
 import colors from "../../utilities/style/Colors";
+import Buttons from "../../utilities/style/Buttons";
 const Spin = keyframes`
   0%{
     transform: rotate(0);
@@ -40,12 +41,12 @@ const Main = styled.div`
   overflow: hidden;
   padding-bottom: 20px;
   justify-content: space-around;
+  padding-bottom: 100px;
   @media only screen and (min-width: 1200px) {
     grid-template-columns: 47% 53%;
   }
   @media only screen and (max-width: 1200px) {
     grid-template-columns: 40% 60%;
-    height: 1000px;
   }
 `;
 const Text = styled.div`
@@ -281,19 +282,6 @@ const Paragraph = styled.p`
       ? `${colors.paragraphColorDark}`
       : `${colors.paragraphColorWhite}`};
 `;
-const ContactButton = styled.button`
-  width: 150px;
-  height: 50px;
-  color: white;
-  background-color: ${colors.primaryPurpule};
-  border: none;
-  border-radius: 20px;
-  margin-top: 20px;
-  &:hover {
-    background-color: ${colors.primaryPurpuleHover};
-    cursor: pointer;
-  }
-`;
 function Header() {
   const { theme } = useContext(ThemeContext);
   return (
@@ -309,7 +297,7 @@ function Header() {
           HTML, CSS, and JavaScript also using React.js, to bring ideas to life
           on the web.
         </Paragraph>
-        <ContactButton propstheme>Contact me</ContactButton>
+        <Buttons primary>Contact me</Buttons>
       </Text>
       <Graphics>
         <BigCircle propsTheme={theme}>

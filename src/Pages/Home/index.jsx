@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../utilities/context";
 import { useEffect } from "react";
 import About from "../../Components/About";
+import Portfolio from "../../Components/Portfolio";
 const Main = styled.div``;
 function Home() {
   const time = new Date();
@@ -22,6 +23,7 @@ function Home() {
       <Nav />
       <Header />
       <About />
+      <Portfolio />
     </Main>
   );
 }
