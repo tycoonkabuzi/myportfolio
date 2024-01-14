@@ -5,6 +5,6 @@ const SquareShape = styled.div`
   border-radius: 15px;
   // picture square
   ${(props) => props.profileSquare && `   width: 80%;  height: 430px;`}
-  ${(props) => props.projectSquare && `   width: 50%;  height: 200px;`}
+  ${(props) => props.projectSquare && `   width: 50%;  height: 185px;`}
 `;
 export default SquareShape;
