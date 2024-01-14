@@ -1,9 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import moon from "../../Assets/moon.png";
 import sun from "../../Assets/sun.png";
 import { useContext } from "react";
 import { ThemeContext } from "../../utilities/context";
+import colors from "../../utilities/style/Colors";
 const Name = "<Kabuzi_Ntwali/>";
+
 const Main = styled.div`
   color: white;
   height: 60px;
@@ -21,7 +23,8 @@ const Logo = styled.h3`
   display: block;
   width: 500px;
   text-align: left;
-  ${(props) => (props.propsTheme === true ? `color:#1f252f;` : `color:white;`)}
+  ${(props) =>
+    props.propsTheme === true ? `color:${colors.primary};` : `color:white;`}
 `;
 const MainLinks = styled.ul`
   width: 300px;
@@ -32,9 +35,12 @@ const Links = styled.li`
   list-style: none;
   display: inline;
   margin-left: 50px;
-  color: ${(props) => (props.propsTheme === true ? `#626262` : ` #bfbfbf`)};
+  color: ${(props) =>
+    props.propsTheme === true
+      ? ` ${colors.paragraphColorDark}`
+      : ` ${colors.paragraphColorWhite}`};
   &:hover {
-    color: #ae69e0;
+    color: ${colors.primaryPurpuleHover};
     cursor: pointer;
   }
 `;
@@ -45,8 +51,8 @@ const ThemeChanger = styled.div`
   overflow: hidden;
   ${(props) =>
     props.propsTheme === true
-      ? `background-color:#626262;`
-      : `background-color: white;`}
+      ? `background-color:${colors.nightColor};`
+      : `background-color: ${colors.dayColor};`}
 `;
 const Circle = styled.div`
   width: 40px;
@@ -55,10 +61,11 @@ const Circle = styled.div`
   position: relative;
   transition: transform 0.3s ease-in-out;
   box-shadow: 1px 10px 17px black;
+
   ${(props) =>
     props.propsTheme === true
-      ? `transform: translatex(40px);background-color: white; `
-      : `background-color: #626262;`}
+      ? `transform: translatex(40px);background-color: ${colors.dayColor}; `
+      : `background-color: ${colors.nightColor};`}
 `;
 
 const Sun = styled.img`

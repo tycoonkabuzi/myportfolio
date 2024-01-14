@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../utilities/context";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import reactImage from "../../Assets/react.png";
 import sassImage from "../../Assets/sass.png";
 import avatar from "../../Assets/graphic.svg";
@@ -14,14 +14,31 @@ import reactColor from "../../Assets/reactColor.png";
 import sassColor from "../../Assets/sassColor.png";
 import avatarWhite from "../../Assets/graphicWhite.svg";
 import colors from "../../utilities/style/Colors";
+const Spin = keyframes`
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+     transform: rotate(360deg);
+  }
+  
+`;
+const ReversSpin = keyframes`
+  0%{
+    transform: rotate(360deg);
+  }
+  100%{
+     transform: rotate(0);
+  }`;
 const Main = styled.div`
-  width: 100%;
+  width: 90%;
   transition: background-color 0.3s ease-in-out;
   margin: auto;
   display: grid;
   grid-template-columns: auto auto;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
+  padding-bottom: 20px;
   justify-content: space-around;
   @media only screen and (min-width: 1200px) {
     grid-template-columns: 47% 53%;
@@ -43,9 +60,10 @@ const Graphics = styled.div`
 const BigCircle = styled.div`
   border: solid 1px
     ${(props) =>
-      props.propsTheme === true
+      props.propstheme === true
         ? `${colors.circleWhite}`
         : `${colors.circleDark}`};
+  animation: ${Spin} ease-in-out 5s infinite running;
   border-radius: 1500px;
   position: absolute;
 
@@ -53,7 +71,6 @@ const BigCircle = styled.div`
     width: 1200px;
     height: 1200px;
     top: -200px;
-    left: 700px;
   }
   @media only screen and (max-width: 1200px) {
     width: 1500px;
@@ -70,10 +87,12 @@ const SmallCircle = styled.div`
   border-radius: 800px;
   position: absolute;
   top: 400px;
+  animation: ${ReversSpin} ease-in-out infinite 4s running;
   @media only screen and (min-width: 1200px) {
     width: 500px;
     height: 500px;
-    left: 230px;
+    right: 20px;
+    top: 200px;
   }
   @media only screen and (max-width: 1200px) {
     width: 800px;
@@ -188,15 +207,17 @@ const SassImage = styled.img`
   }
 `;
 const Avatar = styled.img`
-  display: block;
+  position: relative;
+  right: -220px;
+  top: 200px;
   margin: auto;
 
   @media only screen and (min-width: 1200px) {
-    width: 450px;
+    width: 420px;
     margin-top: 90px;
   }
   @media only screen and (max-width: 1200px) {
-    width: 650px;
+    width: 630px;
     margin-top: 150px;
   }
 `;
@@ -255,18 +276,21 @@ const Gradient = styled.span`
   -webkit-background-clip: text;
 `;
 const Paragraph = styled.p`
-  color: ${colors.paragraphColorWhite};
+  color: ${(props) =>
+    props.propsTheme === true
+      ? `${colors.paragraphColorDark}`
+      : `${colors.paragraphColorWhite}`};
 `;
 const ContactButton = styled.button`
   width: 150px;
   height: 50px;
   color: white;
-  background-color: #713c98;
+  background-color: ${colors.primaryPurpule};
   border: none;
   border-radius: 20px;
   margin-top: 20px;
   &:hover {
-    background-color: #8d49bd;
+    background-color: ${colors.primaryPurpuleHover};
     cursor: pointer;
   }
 `;
@@ -279,15 +303,16 @@ function Header() {
         <Title propstheme={theme}>
           I’m Kabuzi Ntwali, a<Gradient> Front-end</Gradient> Developper
         </Title>
-        <Paragraph>
-          I am one one of the best developer in this generation where we do not
-          have people patinated by this job which helped us to bring the best in
-          us
+        <Paragraph propsTheme={theme}>
+          A passionate Front-End Developer with expertise in crafting engaging
+          and responsive user interfaces. I specialize in the powerful trio of
+          HTML, CSS, and JavaScript also using React.js, to bring ideas to life
+          on the web.
         </Paragraph>
         <ContactButton propstheme>Contact me</ContactButton>
       </Text>
       <Graphics>
-        <BigCircle propstheme={theme}>
+        <BigCircle propsTheme={theme}>
           <Javascript
             src={theme === true ? javascriptBlack : javascriptImage}
             alt=" javascript logo image"
@@ -300,25 +325,25 @@ function Header() {
             src={theme === true ? cssBlack : cssImage}
             alt="css logo image"
           />
-          <SmallCircle propsTheme={theme}>
-            <Avatar
-              src={theme ? avatarWhite : avatar}
-              alt="man working on a computer, coding to be specific with a monitor displaying his work"
-            />
-            <JavascriptText>Javascript</JavascriptText>
-            <SassText>Sass</SassText>
-            <CssText>Css</CssText>
-            <HtmlText>Html</HtmlText>
-            <ReactImage
-              src={theme === true ? reactColor : reactImage}
-              alt=" logo of react, the framewark react.js"
-            />
-            <SassImage
-              src={theme === true ? sassColor : sassImage}
-              alt="logo of sass "
-            />
-          </SmallCircle>
         </BigCircle>
+        <SmallCircle propsTheme={theme}>
+          <JavascriptText>Javascript</JavascriptText>
+          <SassText>Sass</SassText>
+          <CssText>Css</CssText>
+          <HtmlText>Html</HtmlText>
+          <ReactImage
+            src={theme === true ? reactColor : reactImage}
+            alt=" logo of react, the framewark react.js"
+          />
+          <SassImage
+            src={theme === true ? sassColor : sassImage}
+            alt="logo of sass "
+          />
+        </SmallCircle>
+        <Avatar
+          src={theme ? avatarWhite : avatar}
+          alt="man working on a computer, coding to be specific with a monitor displaying his work"
+        />
       </Graphics>
     </Main>
   );

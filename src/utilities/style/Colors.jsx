@@ -4,12 +4,15 @@ const colors = {
   circleWhite: "#dadada",
   circleDark: "#373a40",
   secondaryYellow: "#e6b419",
-  primaryPurpule: "#ae69e0",
+  primaryPurpule: "#5f268a",
+  primaryPurpuleHover: "#7e36b6",
   cssColor: "#619ae8",
   htmlColor: "#c1590e",
   javascriptColor: "#e6b419",
   paragraphColorWhite: "#bfbfbf",
-  paragraphColorDark: 626262,
-  gradient: " linear-gradient(to right, #b49263, #6e2d9f)",
+  paragraphColorDark: "#626262",
+  gradient: " linear-gradient(to right, #b49263, #5f268a)",
+  dayColor: "white",
+  nightColor: "#626262",
 };
 export default colors;
