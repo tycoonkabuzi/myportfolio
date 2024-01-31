@@ -1,11 +1,20 @@
 import styled from "styled-components";
 import JavascriptIcon from "../../Assets/javascript.png";
+import JavascriptBlack from "../../Assets/jsblack.png";
 import cssIcon from "../../Assets/css.png";
+import cssBlack from "../../Assets/cssblack.png";
 import htmlIcon from "../../Assets/html.png";
+import htmlBlack from "../../Assets/htmlblack.png";
 import reactIcon from "../../Assets/react.png";
+import reactColor from "../../Assets/reactColor.png";
 import bootstrap from "../../Assets/bootstrap.png";
 import sassIcon from "../../Assets/sass.png";
+import sassColor from "../../Assets/sassColor.png";
 import adobeXD from "../../Assets/xdwhite.png";
+import adobeXDBlack from "../../Assets/xdblack.png";
+import { ThemeContext } from "../../utilities/context";
+import { useContext } from "react";
+import colors from "../../utilities/style/Colors";
 const Main = styled.div`
   margin-top: 200px;
   width: 75%;
@@ -20,6 +29,7 @@ const Item = styled.div`
 const Title = styled.h2`
   text-align: center;
   padding-bottom: 100px;
+  color: ${(props) => (props.theme === true ? `${colors.primary}` : `white`)};
 `;
 const PictureSkill = styled.img`
   width: 100%;
@@ -34,25 +44,28 @@ const ItemContainer = styled.div`
   align-items: center;
   width: 100%;
   margin: auto;
+  color: ${(props) =>
+    props.theme === true ? `${colors.paragraphColorDark}` : `white`};
 `;
 function Experience() {
+  const { theme } = useContext(ThemeContext);
   return (
     <Main>
-      <Title> EXPERIENCE</Title>
+      <Title theme={theme}> EXPERIENCE</Title>
 
       <Container>
-        <ItemContainer>
+        <ItemContainer theme={theme}>
           <Item>
-            <PictureSkill src={JavascriptIcon} />
+            <PictureSkill src={theme ? JavascriptBlack : JavascriptIcon} />
             <ElementName>Javascript</ElementName>
           </Item>
           <Item>
-            <PictureSkill src={htmlIcon} />
+            <PictureSkill src={theme ? htmlBlack : htmlIcon} />
             <ElementName>Html</ElementName>
           </Item>
 
           <Item>
-            <PictureSkill src={cssIcon} />
+            <PictureSkill src={theme ? cssBlack : cssIcon} />
             <ElementName>Css</ElementName>
           </Item>
 
@@ -61,15 +74,15 @@ function Experience() {
             <ElementName>Bootstrap</ElementName>
           </Item>
           <Item>
-            <PictureSkill src={reactIcon} />
+            <PictureSkill src={theme ? reactColor : reactIcon} />
             <ElementName>React</ElementName>
           </Item>
           <Item>
-            <PictureSkill src={sassIcon} />
+            <PictureSkill src={theme ? sassColor : sassIcon} />
             <ElementName>Sass</ElementName>
           </Item>
           <Item>
-            <PictureSkill src={adobeXD} />
+            <PictureSkill src={theme ? adobeXDBlack : adobeXD} />
             <ElementName>Adobe Xd</ElementName>
           </Item>
         </ItemContainer>

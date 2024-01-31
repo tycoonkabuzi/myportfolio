@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import About from "../../Components/About";
 import Portfolio from "../../Components/Portfolio";
 import Experience from "../../Components/Experience";
+import Contact from "../../Components/Contact";
 const Main = styled.div``;
 function Home() {
   const time = new Date();
@@ -26,6 +27,7 @@ function Home() {
       <About />
       <Portfolio />
       <Experience />
+      <Contact />
     </Main>
   );
 }
