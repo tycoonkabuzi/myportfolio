@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import colors from "./Colors";
 const SquareShape = styled.div`
+  width: 100%;
   border: 15px solid ${colors.primaryPurpule};
   border-radius: 15px;
   // picture square

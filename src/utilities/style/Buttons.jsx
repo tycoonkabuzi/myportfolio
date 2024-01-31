@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import colors from "./Colors";
+
 const Buttons = styled.button`
   width: 150px;
   height: 50px;
-  color: white;
+  color: ${(props) => (props.theTheme ? `${colors.primary}` : `white`)};
   background-color: ${(props) =>
     props.primary ? `${colors.primaryPurpule}` : `transparent`};
   border: none;
@@ -17,10 +18,11 @@ const Buttons = styled.button`
     props.secondary &&
     `background-color:transparent;
       border:2px solid ${colors.primaryPurpule};
-      color:${(props) => (props.theTheme === true ? `blue` : `blue`)};`}
+      `}
   ${(props) =>
     props.gradient
       ? `background:${colors.gradient};
+      color:${props.theTheme === true && `white`};
       `
       : `${colors.primaryPurpule}`};
 `;
