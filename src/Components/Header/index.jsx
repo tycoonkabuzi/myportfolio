@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../utilities/context";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import reactImage from "../../Assets/react.png";
 import sassImage from "../../Assets/sass.png";
 import avatar from "../../Assets/graphic.svg";
@@ -15,6 +15,44 @@ import sassColor from "../../Assets/sassColor.png";
 import avatarWhite from "../../Assets/graphicWhite.svg";
 import colors from "../../utilities/style/Colors";
 import Buttons from "../../utilities/style/Buttons";
+import { useEffect } from "react";
+import { useState } from "react";
+const fromRight = keyframes`
+from{
+ transform: translateX(0);
+
+}
+to{
+  transform: translateX(700px) rotate(-12deg);
+
+}`;
+const reversedRight = keyframes`
+from{
+
+ transform: translateX(700px) rotate(-12deg);
+
+}
+to{
+   transform: translateX(0);
+
+}`;
+const fromLeft = keyframes`
+from{
+  transform: translateX(0);
+  
+}
+to{
+transform: translateX(-700px) rotate(12deg);
+}`;
+const reversedLeft = keyframes`
+from{
+ 
+  transform: translateX(-700px) rotate(12deg);
+}
+to{
+
+ transform: translateX(0);
+}`;
 const Spin = keyframes`
   0%{
     transform: rotate(0);
@@ -24,6 +62,7 @@ const Spin = keyframes`
   }
   
 `;
+
 const ReversSpin = keyframes`
   0%{
     transform: rotate(360deg);
@@ -52,9 +91,25 @@ const Main = styled.div`
 const Text = styled.div`
   width: 75%;
   margin: auto;
+  ${(props) =>
+    props.animate === true
+      ? css`
+          animation: ${fromLeft} 0.6s ease-in-out forwards;
+        `
+      : css`
+          animation: ${reversedLeft} 0.6s ease-in-out forwards;
+        `}
 `;
 const Graphics = styled.div`
   height: 1000px;
+  ${(props) =>
+    props.animate === true
+      ? css`
+          animation: ${fromRight} 0.6s ease-in-out forwards;
+        `
+      : css`
+          animation: ${reversedRight} 0.6s ease-in-out forwards;
+        `}
   @media only screen and (min-width: 1200px) {
   }
 `;
@@ -284,9 +339,24 @@ const Paragraph = styled.p`
 `;
 function Header() {
   const { theme } = useContext(ThemeContext);
+  const [animate, setAnimation] = useState();
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 400) {
+        setAnimation(true);
+      } else {
+        setAnimation(false);
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <Main propstheme={theme}>
-      <Text>
+      <Text animate={animate}>
         <Line propstheme={theme}></Line>
         <Title propstheme={theme}>
           I’m Kabuzi Ntwali, a<Gradient> Front-end</Gradient> Developper
@@ -297,9 +367,11 @@ function Header() {
           HTML, CSS, and JavaScript also using React.js, to bring ideas to life
           on the web.
         </Paragraph>
-        <Buttons primary>Contact me</Buttons>
+        <Buttons theAnimation={animate} primary>
+          Contact me
+        </Buttons>
       </Text>
-      <Graphics>
+      <Graphics animate={animate}>
         <BigCircle propsTheme={theme}>
           <Javascript
             src={theme === true ? javascriptBlack : javascriptImage}

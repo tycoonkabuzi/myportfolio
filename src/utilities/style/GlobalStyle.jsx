@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import colors from "./Colors";
 import { ThemeContext } from "../context";
 import { useContext } from "react";
 
@@ -8,7 +9,7 @@ const Style = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
      background-color: ${(props) =>
-       props.isDark === true ? `#eeeeee` : `#1f252f `};
+       props.isDark === true ? `${colors.secondary}` : `${colors.primary} `};
     color: white;
     font-family: 'Poppins', sans-serif;
   }

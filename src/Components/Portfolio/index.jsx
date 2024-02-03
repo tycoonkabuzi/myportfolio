@@ -4,6 +4,7 @@ import colors from "../../utilities/style/Colors";
 import { ThemeContext } from "../../utilities/context";
 import { useContext } from "react";
 import Project from "../Project";
+import { useState } from "react";
 const Main = styled.div`
   width: 80%;
   margin: auto;
@@ -22,8 +23,11 @@ const Links = styled.ul`
 `;
 const LinkEl = styled.li`
   list-style: none;
-
   margin: auto;
+  &:hover {
+    color: ${colors.primaryPurpule};
+    cursor: pointer;
+  }
 `;
 const Title = styled.h2`
   text-align: center;
@@ -35,21 +39,32 @@ const ContainerItem = styled.div`
 `;
 function Portfolio() {
   const { theme } = useContext(ThemeContext);
+  const [filtered, setFiltered] = useState(
+    Database.filter((item) => item.category === "React")
+  );
+  const [clicked, setClicked] = useState(false);
+  function handleCategory(theCategory) {
+    const filtered = Database.filter((item) => item.category === theCategory);
+    setClicked(!clicked);
+    setFiltered(filtered);
+  }
   return (
     <Main>
       <Title theTheme={theme}> PORTFOLIO</Title>
       <Links theTheme={theme}>
-        <LinkEl>React Projects</LinkEl>
-        <LinkEl> Vanila JS Projects</LinkEl>
-        <LinkEl>Adobe XD designs</LinkEl>
+        <LinkEl onClick={() => handleCategory("React")}>React Projects</LinkEl>
+        <LinkEl onClick={() => handleCategory("Js")}>Vanila JS Projects</LinkEl>
+        <LinkEl onClick={() => handleCategory("Xd")}>Adobe XD designs</LinkEl>
       </Links>
       <ContainerItem>
-        {Database.map((element) => (
+        {filtered.map((element) => (
           <Project
+            key={element.id}
             index={element.id}
             title={element.title}
             description={element.description}
             picture={element.projectImage}
+            clicked={clicked}
           />
         ))}
       </ContainerItem>

@@ -1,22 +1,51 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import colors from "../../utilities/style/Colors";
 import picture from "../../Assets/picature.jpg";
 import { useContext } from "react";
 import { ThemeContext } from "../../utilities/context";
 import Buttons from "../../utilities/style/Buttons";
 import SquareShape from "../../utilities/style/SquareShape";
+import { useState } from "react";
+import { useEffect } from "react";
+
+const zoomIn = keyframes`
+  from{
+    transform: scale(0);
+  }
+  to{
+    transform: scale(1);
+  }
+`;
+
+const zoomOut = keyframes`
+  from{
+     transform: scale(1);
+  }
+  to{
+    transform: scale(0);
+   
+  }
+`;
 const Main = styled.div`
   width: 75%;
   margin: auto;
   display: grid;
+  ${(props) =>
+    props.theAnimation === true
+      ? css`
+          animation: ${zoomIn} 0.6s ease-in-out both;
+        `
+      : css`
+          animation: ${zoomOut} 0.6s ease-in-out both;
+        `}
 `;
 
 const ContainerText = styled.div``;
 const Picture = styled.img`
-  width: 26%;
-  position: absolute;
-  left: 120px;
-  bottom: -720px;
+  width: 100%;
+  position: relative;
+  left: -70px;
+  bottom: 150px;
   border-radius: 15px;
 `;
 const Title = styled.h2`
@@ -41,9 +70,23 @@ const ButtonContainer = styled.div`
 `;
 
 function About() {
+  const [animation, setAnimation] = useState(false);
+  useEffect(() => {
+    function handleAnimation() {
+      if (window.scrollY > 1300) {
+        setAnimation(false);
+      } else if (window.scrollY < 1001) {
+        setAnimation(true);
+      }
+    }
+    window.addEventListener("scroll", handleAnimation);
+    return () => {
+      window.removeEventListener("scroll", handleAnimation);
+    };
+  }, []);
   const { theme } = useContext(ThemeContext);
   return (
-    <Main>
+    <Main theAnimation={animation}>
       <Container>
         <SquareShape profileSquare>
           <Picture alt="profile picture" src={picture} />
@@ -59,10 +102,10 @@ function About() {
             creative ideas to life.
           </MainText>
           <ButtonContainer>
-            <Buttons gradient theTheme={theme}>
+            <Buttons theAnimation={!animation} gradient theTheme={theme}>
               Hire me
             </Buttons>
-            <Buttons secondary theTheme={theme}>
+            <Buttons theAnimation={!animation} secondary theTheme={theme}>
               Resume
             </Buttons>
           </ButtonContainer>

@@ -1,12 +1,35 @@
 import colors from "../../utilities/style/Colors";
 import SquareShape from "../../utilities/style/SquareShape";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { ThemeContext } from "../../utilities/context";
 import { useContext } from "react";
 
+const fromRight = keyframes`
+from{
+  transform: translateX(700px) rotate(-12deg);
+ 
+}
+to{
+transform: translateX(0);
+}`;
+const fromLeft = keyframes`
+from{
+  transform: translateX(-700px) rotate(12deg);
+}
+to{
+transform: translateX(0);
+}`;
 const ProjectsText = styled.div`
   width: 80%;
-  order: ${(props) => (props.theIndex % 2 === 0 ? 1 : "")};
+  ${(props) =>
+    props.theIndex % 2 === 0 && props.clicked === true
+      ? css`
+          animation: ${fromRight} 1s ease-in-out;
+          order: 1;
+        `
+      : css`
+          animation: ${fromLeft} 1s ease-in-out;
+        `}
 `;
 const ProjectsLayout = styled.div`
   margin: auto;
@@ -38,19 +61,33 @@ const ProjectPicture = styled.img`
   left: 20px;
   bottom: 50px;
   border-radius: 15px;
+  ${(props) =>
+    props.theIndex % 2 === 0 && props.clicked === true
+      ? css`
+          animation: ${fromLeft} 1s ease-in-out backwards;
+          order: 1;
+        `
+      : css`
+          animation: ${fromRight} 1s ease-in-out backwards;
+        `}
 `;
-function Project({ index, title, description, picture }) {
+function Project({ index, title, description, picture, clicked }) {
   const { theme } = useContext(ThemeContext);
   const theIndex = parseInt(index);
   return (
     <ProjectsLayout theIndex={theIndex}>
-      <ProjectsText theIndex={theIndex}>
+      <ProjectsText theIndex={theIndex} clicked={clicked}>
         <Rank> Project {theIndex} </Rank>
         <ProjectTitle theTheme={theme}>{title}</ProjectTitle>
         <ProjectDescription theTheme={theme}>{description}</ProjectDescription>
       </ProjectsText>
-      <SquareShape projectSquare>
-        <ProjectPicture alt="Toni market project Image" src={picture} />
+      <SquareShape projectSquare theIndex={index}>
+        <ProjectPicture
+          theIndex={theIndex}
+          clicked={clicked}
+          alt="Toni market project Image"
+          src={picture}
+        />
       </SquareShape>
     </ProjectsLayout>
   );
