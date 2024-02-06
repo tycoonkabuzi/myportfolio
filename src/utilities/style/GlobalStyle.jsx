@@ -4,6 +4,10 @@ import { ThemeContext } from "../context";
 import { useContext } from "react";
 
 const Style = createGlobalStyle`
+html{
+   scroll-behavior:smooth;
+    scroll-padding:1rem;
+}
     body{
     margin: 0;
     padding: 0;
@@ -12,6 +16,8 @@ const Style = createGlobalStyle`
        props.isDark === true ? `${colors.secondary}` : `${colors.primary} `};
     color: white;
     font-family: 'Poppins', sans-serif;
+   
+
   }
 `;
 function GlobalStyle() {

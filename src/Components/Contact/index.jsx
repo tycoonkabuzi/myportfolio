@@ -4,7 +4,7 @@ import Buttons from "../../utilities/style/Buttons";
 import { ThemeContext } from "../../utilities/context";
 import { useContext } from "react";
 const Main = styled.div`
-  padding-top: 200px;
+  padding-top: 150px;
 `;
 const HeaderTitle = styled.h2`
   text-align: center;
@@ -50,20 +50,38 @@ const MainText = styled.div`
 `;
 const TextContainer = styled.div``;
 const FormContainer = styled.form`
-  display: grid;
-  grid-template-columns: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 const TextField = styled.input`
+  color: ${colors.paragraphColorWhite};
+  height: 40px;
   background-color: ${(props) =>
     props.theme === true ? `${colors.secondary}` : `${colors.primary}`};
   border: none;
   border-bottom: 1px solid ${colors.paragraphColorWhite};
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid ${colors.primaryPurpule};
+  }
+  &::placeholder {
+    color: ${colors.paragraphColorWhite};
+  }
 `;
 const Message = styled.textarea`
+  height: 100px;
   background-color: ${(props) =>
     props.theme === true ? `${colors.secondary}` : `${colors.primary}`};
   border: none;
   border-bottom: 1px solid ${colors.paragraphColorWhite};
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid ${colors.primaryPurpule};
+  }
+  &::placeholder {
+    color: ${colors.paragraphColorWhite};
+  }
 `;
 const Footer = styled.div`
   text-align: center;
@@ -83,7 +101,7 @@ const Footer = styled.div`
 function Contact() {
   const { theme } = useContext(ThemeContext);
   return (
-    <Main>
+    <Main id="contact">
       <KeepInTouchContainer>
         <HeaderTitle theme={theme}> CONTACT</HeaderTitle>
         <Container>
@@ -106,7 +124,7 @@ function Contact() {
             <TextField theme={theme} type="text" placeholder=" Your name" />
             <TextField theme={theme} type="Email" placeholder="Email Addres" />
             <Message theme={theme} placeholder="Message" />
-            <Buttons theme={theme} secondary>
+            <Buttons secondary theme={theme}>
               Keep in Touch
             </Buttons>
           </FormContainer>

@@ -1,9 +1,13 @@
 import styled, { keyframes } from "styled-components";
+
 import moon from "../../Assets/moon.png";
 import sun from "../../Assets/sun.png";
 import { useContext } from "react";
 import { ThemeContext } from "../../utilities/context";
 import colors from "../../utilities/style/Colors";
+import { HashLink as Link } from "react-router-hash-link";
+import { useEffect } from "react";
+import { useState } from "react";
 const Name = "<Kabuzi_Ntwali/>";
 
 const Main = styled.div`
@@ -17,7 +21,14 @@ const Main = styled.div`
   justify-content: center;
   justify-items: center;
   align-items: center;
+
   top: 50px;
+  ${(props) =>
+    props.scroll === true
+      ? `background-color:${
+          props.propTheme === true ? `${colors.secondary}` : `${colors.primary}`
+        }; position: fixed; top:0; box-shadow: 1px 1px 5px #121212;`
+      : null}
 `;
 const Logo = styled.h3`
   display: block;
@@ -30,10 +41,10 @@ const MainLinks = styled.ul`
   width: auto;
   margin: auto;
 `;
-const Links = styled.li`
-  list-style: none;
+const Links = styled(Link)`
   display: inline;
   margin-left: 50px;
+  text-decoration: none;
   color: ${(props) =>
     props.propsTheme === true
       ? ` ${colors.paragraphColorDark}`
@@ -82,17 +93,39 @@ const Moon = styled.img`
 `;
 function Nav() {
   const { theme, setTheme } = useContext(ThemeContext);
+  const [scroll, setScroll] = useState(false);
   function handleCircle() {
     setTheme(!theme);
   }
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 50) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scroll]);
   return (
-    <Main>
+    <Main propTheme={theme} scroll={scroll}>
       <Logo propsTheme={theme}>{Name}</Logo>
       <MainLinks>
-        <Links propsTheme={theme}>Home</Links>
-        <Links propsTheme={theme}>About</Links>
-        <Links propsTheme={theme}>Portfolio</Links>
-        <Links propsTheme={theme}>Experience</Links>
+        <Links propsTheme={theme} to="#home">
+          Home
+        </Links>
+        <Links propsTheme={theme} to="#about">
+          About
+        </Links>
+        <Links propsTheme={theme} to="#portfolio">
+          Portfolio
+        </Links>
+        <Links propsTheme={theme} to="#experience">
+          Experience
+        </Links>
       </MainLinks>
       <ThemeChanger onClick={handleCircle} propsTheme={theme}>
         <Circle propsTheme={theme}>

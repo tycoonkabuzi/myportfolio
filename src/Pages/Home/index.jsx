@@ -8,6 +8,8 @@ import About from "../../Components/About";
 import Portfolio from "../../Components/Portfolio";
 import Experience from "../../Components/Experience";
 import Contact from "../../Components/Contact";
+import { BrowserRouter } from "react-router-dom";
+
 const Main = styled.div``;
 function Home() {
   const time = new Date();
@@ -21,14 +23,16 @@ function Home() {
     }
   }, [hours, setTheme]);
   return (
-    <Main>
-      <Nav />
-      <Header />
-      <About />
-      <Portfolio />
-      <Experience />
-      <Contact />
-    </Main>
+    <BrowserRouter>
+      <Main>
+        <Nav />
+        <Header />
+        <About />
+        <Portfolio />
+        <Experience />
+        <Contact />
+      </Main>
+    </BrowserRouter>
   );
 }
 export default Home;

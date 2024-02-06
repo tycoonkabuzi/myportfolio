@@ -19,7 +19,7 @@ const Main = styled.div`
   margin-top: 200px;
   width: 75%;
   margin: auto;
-  padding-top: 200px;
+  padding-top: 150px;
 `;
 const Container = styled.div``;
 const Item = styled.div`
@@ -50,7 +50,7 @@ const ItemContainer = styled.div`
 function Experience() {
   const { theme } = useContext(ThemeContext);
   return (
-    <Main>
+    <Main id="experience">
       <Title theme={theme}> EXPERIENCE</Title>
 
       <Container>

@@ -80,7 +80,7 @@ const Main = styled.div`
   overflow: hidden;
   padding-bottom: 20px;
   justify-content: space-around;
-  padding-bottom: 100px;
+
   @media only screen and (min-width: 1200px) {
     grid-template-columns: 47% 53%;
   }
@@ -114,7 +114,7 @@ const Graphics = styled.div`
   }
 `;
 const BigCircle = styled.div`
-  border: solid 1px
+  border: solid 3px
     ${(props) =>
       props.propstheme === true
         ? `${colors.circleWhite}`
@@ -135,7 +135,7 @@ const BigCircle = styled.div`
   }
 `;
 const SmallCircle = styled.div`
-  border: solid 1px
+  border: solid 3px
     ${(props) =>
       props.propstheme === true
         ? `${colors.circleWhite}`
@@ -355,7 +355,7 @@ function Header() {
     };
   }, []);
   return (
-    <Main propstheme={theme}>
+    <Main propstheme={theme} id="home">
       <Text animate={animate}>
         <Line propstheme={theme}></Line>
         <Title propstheme={theme}>
@@ -367,7 +367,7 @@ function Header() {
           HTML, CSS, and JavaScript also using React.js, to bring ideas to life
           on the web.
         </Paragraph>
-        <Buttons theAnimation={animate} primary>
+        <Buttons to="#contact" primary theAnimation={animate}>
           Contact me
         </Buttons>
       </Text>

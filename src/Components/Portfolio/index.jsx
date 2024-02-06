@@ -8,7 +8,8 @@ import { useState } from "react";
 const Main = styled.div`
   width: 80%;
   margin: auto;
-  margin-top: 150px;
+
+  padding-top: 150px;
 `;
 
 const Links = styled.ul`
@@ -49,7 +50,7 @@ function Portfolio() {
     setFiltered(filtered);
   }
   return (
-    <Main>
+    <Main id="portfolio">
       <Title theTheme={theme}> PORTFOLIO</Title>
       <Links theTheme={theme}>
         <LinkEl onClick={() => handleCategory("React")}>React Projects</LinkEl>

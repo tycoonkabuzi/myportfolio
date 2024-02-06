@@ -27,17 +27,10 @@ const zoomOut = keyframes`
   }
 `;
 const Main = styled.div`
+  padding-top: 120px;
   width: 75%;
   margin: auto;
   display: grid;
-  ${(props) =>
-    props.theAnimation === true
-      ? css`
-          animation: ${zoomIn} 0.6s ease-in-out both;
-        `
-      : css`
-          animation: ${zoomOut} 0.6s ease-in-out both;
-        `}
 `;
 
 const ContainerText = styled.div``;
@@ -53,6 +46,7 @@ const Title = styled.h2`
     props.theTheme === true ? `${colors.primary}` : `white`};
 `;
 const MainText = styled.p`
+  color: gray;
   color: ${(props) =>
     props.theTheme === true
       ? `${colors.paragraphColorDark}`
@@ -62,32 +56,59 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 50px;
+  ${(props) =>
+    props.theAnimation === true
+      ? css`
+          animation: ${zoomIn} 0.6s ease-in-out both;
+        `
+      : css`
+          animation: ${zoomOut} 0.6s ease-in-out both;
+        `}
 `;
 const ButtonContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   width: 350px;
 `;
-
+const ColorFullText = styled.span`
+  color: red;
+`;
 function About() {
   const [animation, setAnimation] = useState(false);
+  const [textAbout, setTextAbout] = useState(
+    "Hello! I'm Kabuzi Ntwali, a passionate junior front-end developer with a keen interest in creating engaging and user-friendly web experiences. I am enthusiastic about leveraging my skills in HTML,CSS, and JavaScript to contribute to innovative projects and bring creative ideas to life."
+  );
+  const [newText, setNewText] = useState("");
+  function handleTextReplace(theText) {
+    if (animation === true) {
+      const theNewText = theText.slice(0, 3);
+      let replaced = theText.replace(theNewText, "");
+      setNewText(theNewText);
+      setTextAbout(replaced);
+    } else {
+    }
+  }
   useEffect(() => {
     function handleAnimation() {
-      if (window.scrollY > 1300) {
-        setAnimation(false);
-      } else if (window.scrollY < 1001) {
+      if (window.scrollY > 1) {
         setAnimation(true);
+      } else if (window.scrollY < 1200) {
+        setAnimation(false);
       }
     }
-    window.addEventListener("scroll", handleAnimation);
+    window.addEventListener(
+      "scroll",
+      handleAnimation,
+      handleTextReplace(textAbout)
+    );
     return () => {
       window.removeEventListener("scroll", handleAnimation);
     };
   }, []);
   const { theme } = useContext(ThemeContext);
   return (
-    <Main theAnimation={animation}>
-      <Container>
+    <Main id="about">
+      <Container theAnimation={animation}>
         <SquareShape profileSquare>
           <Picture alt="profile picture" src={picture} />
         </SquareShape>
@@ -95,11 +116,7 @@ function About() {
         <ContainerText>
           <Title theTheme={theme}> ABOUT ME</Title>
           <MainText theTheme={theme}>
-            Hello! I'm Kabuzi Ntwali, a passionate junior front-end developer
-            with a keen interest in creating engaging and user-friendly web
-            experiences. I am enthusiastic about leveraging my skills in HTML,
-            CSS, and JavaScript to contribute to innovative projects and bring
-            creative ideas to life.
+            <ColorFullText>{newText}</ColorFullText> {textAbout}
           </MainText>
           <ButtonContainer>
             <Buttons theAnimation={!animation} gradient theTheme={theme}>

@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
+import { HashLink as Link } from "react-router-hash-link";
 import colors from "./Colors";
 const zoomIn = keyframes`
   from{
@@ -17,9 +18,12 @@ const zoomOut = keyframes`
    
   }
 `;
-const Buttons = styled.button`
+const Buttons = styled(Link)`
+  display: block;
+  text-decoration: none;
   width: 150px;
-  height: 50px;
+  padding: 10px;
+  text-align: center;
   color: ${(props) => (props.theTheme ? `${colors.primary}` : `white`)};
   animation: ${(props) =>
     props.theAnimation === true
