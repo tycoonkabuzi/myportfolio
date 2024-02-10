@@ -20,20 +20,23 @@ import { useState } from "react";
 const fromRight = keyframes`
 from{
  transform: translateX(0);
+ 
 
 }
 to{
   transform: translateX(700px) rotate(-12deg);
+  
 
 }`;
 const reversedRight = keyframes`
 from{
 
  transform: translateX(700px) rotate(-12deg);
-
+ 
 }
 to{
    transform: translateX(0);
+  
 
 }`;
 const fromLeft = keyframes`
@@ -59,6 +62,7 @@ const Spin = keyframes`
   }
   100%{
      transform: rotate(360deg);
+
   }
   
 `;
@@ -86,6 +90,9 @@ const Main = styled.div`
   }
   @media only screen and (max-width: 1200px) {
     grid-template-columns: 40% 60%;
+  }
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 80% 20%;
   }
 `;
 const Text = styled.div`
@@ -133,6 +140,12 @@ const BigCircle = styled.div`
     height: 1500px;
     top: -300px;
   }
+  @media only screen and (max-width: 600px) {
+    width: 600px;
+    height: 600px;
+    top: 80px;
+    left: -50px;
+  }
 `;
 const SmallCircle = styled.div`
   border: solid 3px
@@ -153,15 +166,20 @@ const SmallCircle = styled.div`
   @media only screen and (max-width: 1200px) {
     width: 800px;
     height: 800px;
-
     left: 300px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 200px;
+    height: 200px;
+    left: 50px;
+    top: 300px;
   }
 `;
 const JavascriptText = styled.div`
   font-size: 44px;
   font-weight: 900;
   color: ${colors.javascriptColor};
-
   position: absolute;
 
   left: -120px;
@@ -174,6 +192,12 @@ const JavascriptText = styled.div`
     filter: blur(5px);
     font-size: 44px;
     bottom: 350px;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 10px;
+    left: -10px;
+    bottom: 40px;
+    filter: none;
   }
 `;
 const SassText = styled.div`
@@ -196,6 +220,12 @@ const SassText = styled.div`
     left: 650px;
     top: 80px;
   }
+  @media only screen and (max-width: 600px) {
+    font-size: 10px;
+    right: 0px;
+    left: -10px;
+    filter: none;
+  }
 `;
 const CssText = styled.div`
   font-weight: 900;
@@ -216,6 +246,12 @@ const CssText = styled.div`
     bottom: 350px;
     left: 750px;
   }
+  @media only screen and (max-width: 600px) {
+    font-size: 10px;
+    left: 150px;
+    bottom: 10px;
+    filter: none;
+  }
 `;
 const HtmlText = styled.div`
   font-weight: 900;
@@ -234,6 +270,12 @@ const HtmlText = styled.div`
     bottom: -35px;
     left: 350px;
   }
+  @media only screen and (max-width: 600px) {
+    font-size: 10px;
+    left: 180px;
+    bottom: 60px;
+    filter: none;
+  }
 `;
 const ReactImage = styled.img`
   position: absolute;
@@ -246,6 +288,11 @@ const ReactImage = styled.img`
     width: 142px;
     top: 150px;
     left: -30px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 30px;
+    left: 10px;
+    top: 20px;
   }
 `;
 const SassImage = styled.img`
@@ -260,6 +307,11 @@ const SassImage = styled.img`
     width: 142px;
     bottom: 20px;
     left: 100px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 30px;
+    left: 60px;
+    top: 180px;
   }
 `;
 const Avatar = styled.img`
@@ -276,6 +328,9 @@ const Avatar = styled.img`
     width: 630px;
     margin-top: 150px;
   }
+  @media only screen and (max-width: 600px) {
+    width: 50px;
+  }
 `;
 const Javascript = styled.img`
   position: absolute;
@@ -286,6 +341,11 @@ const Javascript = styled.img`
   }
   @media only screen and (max-width: 1200px) {
     width: 191px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 50px;
+    left: 10px;
+    bottom: 0px;
   }
 `;
 const Html = styled.img`
@@ -301,6 +361,11 @@ const Html = styled.img`
     bottom: 635px;
     left: -50px;
   }
+  @media only screen and (max-width: 600px) {
+    width: 50px;
+    left: -20px;
+    bottom: 300px;
+  }
 `;
 const Css = styled.img`
   position: absolute;
@@ -311,6 +376,11 @@ const Css = styled.img`
   }
   @media only screen and (max-width: 1200px) {
     width: 211px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 50px;
+    left: 10px;
+    bottom: 435px;
   }
 `;
 const Line = styled.span`

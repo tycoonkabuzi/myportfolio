@@ -71,7 +71,7 @@ const ProjectPicture = styled.img`
           animation: ${fromRight} 1s ease-in-out backwards;
         `}
 `;
-function Project({ index, title, description, picture, clicked }) {
+function Project({ index, title, description, picture, clicked, price }) {
   const { theme } = useContext(ThemeContext);
   const theIndex = parseInt(index);
   return (
