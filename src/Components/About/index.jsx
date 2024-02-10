@@ -33,17 +33,29 @@ const Main = styled.div`
   display: grid;
 `;
 
-const ContainerText = styled.div``;
+const ContainerText = styled.div`
+  @media only screen and (max-width: 600px) {
+    order: 1;
+  }
+`;
 const Picture = styled.img`
   width: 100%;
   position: relative;
   left: -70px;
   bottom: 150px;
   border-radius: 15px;
+  @media only screen and (max-width: 600px) {
+    left: -20px;
+    bottom: 40px;
+  }
 `;
 const Title = styled.h2`
   color: ${(props) =>
     props.theTheme === true ? `${colors.primary}` : `white`};
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    text-align: center;
+  }
 `;
 const MainText = styled.p`
   color: gray;
@@ -64,6 +76,10 @@ const Container = styled.div`
       : css`
           animation: ${zoomOut} 0.6s ease-in-out both;
         `}
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    grid-template-columns: auto;
+  }
 `;
 const ButtonContainer = styled.div`
   display: grid;
