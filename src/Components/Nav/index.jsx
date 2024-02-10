@@ -54,6 +54,11 @@ const Main = styled.div`
     grid-template-columns: 50% 20% 20%;
     gap: 40px;
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    grid-template-columns: 50% 20% 20%;
+    gap: 40px;
+  }
 `;
 const Logo = styled.h3`
   display: block;
@@ -63,6 +68,18 @@ const Logo = styled.h3`
     props.propsTheme === true ? `color:${colors.primary};` : `color:white;`}
   @media only screen and (max-width: 600px) {
     width: 200px;
+    z-index: 2;
+    color: ${(props) =>
+      props.propsTheme === true && props.isActive === false
+        ? `${colors.secondary} `
+        : `${
+            props.isActive === true && props.propsTheme === false
+              ? `${colors.primary}`
+              : `${colors.secondary}`
+          }`};
+  }
+  @media only screen and (min-width: 600px) {
+    width: 400px;
     z-index: 2;
     color: ${(props) =>
       props.propsTheme === true && props.isActive === false
@@ -97,6 +114,40 @@ const MainLinks = styled.ul`
               ${zoomIn} 0.3s ease-in both
             `}
           `};
+
+    top: 0; /* Adjust according to your layout */
+    left: 0; /* Adjust according to your layout */
+    ${(props) =>
+      props.isActive === true
+        ? `display: block; background-color: ${colors.primary};`
+        : `display:none;background-color: ${colors.secondary}`}
+
+    ${(props) =>
+      props.propTheme === false
+        ? ` background-color: ${colors.secondary};`
+        : `background-color: ${colors.primary}`}
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 100%; /* Change this to 100% */
+    position: fixed; /* You might want to change this according to your layout */
+    z-index: 1;
+    height: 100vh;
+    padding-bottom: 200px;
+    padding-top: 100px;
+    margin-top: 0;
+    animation: ${(props) =>
+      props.isActive === true
+        ? css`
+            ${zoomIn} 0.3s ease-in both
+          `
+        : css`
+            ${props.isActive === false &&
+            css`
+              ${zoomIn} 0.3s ease-in both
+            `}
+          `};
+
     top: 0; /* Adjust according to your layout */
     left: 0; /* Adjust according to your layout */
     ${(props) =>
@@ -131,6 +182,15 @@ const Links = styled(Link)`
         ? ` ${colors.paragraphColorWhite}`
         : ` ${colors.paragraphColorDark}`};
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    display: block;
+    padding-top: 50px;
+    color: ${(props) =>
+      props.propsTheme === true
+        ? ` ${colors.paragraphColorWhite}`
+        : ` ${colors.paragraphColorDark}`};
+  }
 `;
 const ThemeChanger = styled.div`
   position: relative;
@@ -144,6 +204,15 @@ const ThemeChanger = styled.div`
       : `background-color: ${colors.dayColor};`}
 
   @media only screen and (max-width: 600px) {
+    position: absolute;
+    position: inherit;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    grid-column: 2;
+  }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
     position: absolute;
     position: inherit;
     width: 40px;
@@ -171,6 +240,13 @@ const Circle = styled.div`
         ? `transform: translatex(0);background-color: ${colors.dayColor}; `
         : `background-color: ${colors.nightColor};`}
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    ${(props) =>
+      props.propsTheme === true
+        ? `transform: translatex(0);background-color: ${colors.dayColor}; `
+        : `background-color: ${colors.nightColor};`}
+  }
 `;
 
 const Sun = styled.img`
@@ -179,6 +255,10 @@ const Sun = styled.img`
   top: 5px;
   ${(props) => (props.propsTheme === true ? `right:4px;` : `left: 40px;`)}
   @media only screen and (max-width: 600px) {
+    left: 5px;
+    ${(props) => (props.propsTheme === true ? `right:0;` : `left: -40px;`)};
+  }
+  @media only screen and (min-width: 600px) {
     left: 5px;
     ${(props) => (props.propsTheme === true ? `right:0;` : `left: -40px;`)};
   }
@@ -194,6 +274,11 @@ const Moon = styled.img`
     right: 5px;
     ${(props) => (props.propsTheme === true ? `right:-40px;` : `left: 5px;`)};
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    right: 5px;
+    ${(props) => (props.propsTheme === true ? `right:-40px;` : `left: 5px;`)};
+  }
 `;
 
 const HamburgerMenu = styled.div`
@@ -203,6 +288,11 @@ const HamburgerMenu = styled.div`
   margin-top: 14px;
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
+    display: block;
+    z-index: 1;
+    grid-column: 3;
+  }
+  @media only screen and (min-width: 600px) {
     display: block;
     z-index: 1;
     grid-column: 3;
