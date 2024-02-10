@@ -36,6 +36,10 @@ const PictureSkill = styled.img`
 `;
 const ElementName = styled.h3`
   text-align: center;
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    font-size: 15px;
+  }
 `;
 const ItemContainer = styled.div`
   display: grid;
