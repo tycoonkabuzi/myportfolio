@@ -40,6 +40,10 @@ const ElementName = styled.h3`
   @media only screen and (max-width: 600px) {
     font-size: 15px;
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    font-size: 15px;
+  }
 `;
 const ItemContainer = styled.div`
   display: grid;
