@@ -17,6 +17,10 @@ const Container = styled.div`
   justify-content: center;
   gap: 50px;
   margin: auto;
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: auto;
+  }
 `;
 const KeepInTouchContainer = styled.div`
   width: 70%;
