@@ -94,6 +94,10 @@ const Main = styled.div`
   @media only screen and (max-width: 600px) {
     grid-template-columns: 80% 20%;
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    grid-template-columns: 80% 20%;
+  }
 `;
 const Text = styled.div`
   width: 75%;
@@ -175,6 +179,13 @@ const SmallCircle = styled.div`
     left: 50px;
     top: 300px;
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    width: 400px;
+    height: 400px;
+    left: 90px;
+    top: 300px;
+  }
 `;
 const JavascriptText = styled.div`
   font-size: 44px;
@@ -197,6 +208,12 @@ const JavascriptText = styled.div`
     font-size: 10px;
     left: -10px;
     bottom: 40px;
+    filter: none;
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: 13px;
+    left: -5px;
+    bottom: 80px;
     filter: none;
   }
 `;
@@ -226,6 +243,12 @@ const SassText = styled.div`
     left: -10px;
     filter: none;
   }
+  @media only screen and (min-width: 600px) {
+    font-size: 15px;
+    left: -25px;
+    top: 200px;
+    filter: none;
+  }
 `;
 const CssText = styled.div`
   font-weight: 900;
@@ -252,6 +275,12 @@ const CssText = styled.div`
     bottom: 10px;
     filter: none;
   }
+  @media only screen and (min-width: 600px) {
+    font-size: 13px;
+    left: -10px;
+    top: 130px;
+    filter: none;
+  }
 `;
 const HtmlText = styled.div`
   font-weight: 900;
@@ -276,6 +305,12 @@ const HtmlText = styled.div`
     bottom: 60px;
     filter: none;
   }
+  @media only screen and (min-width: 600px) {
+    font-size: 13px;
+    left: 5px;
+    top: 80px;
+    filter: none;
+  }
 `;
 const ReactImage = styled.img`
   position: absolute;
@@ -294,6 +329,12 @@ const ReactImage = styled.img`
     left: 10px;
     top: 20px;
   }
+
+  @media only screen and (min-width: 600px) {
+    width: 30px;
+    left: 60px;
+    top: 20px;
+  }
 `;
 const SassImage = styled.img`
   position: absolute;
@@ -309,6 +350,11 @@ const SassImage = styled.img`
     left: 100px;
   }
   @media only screen and (max-width: 600px) {
+    width: 30px;
+    left: 60px;
+    top: 180px;
+  }
+  @media only screen and (min-width: 600px) {
     width: 30px;
     left: 60px;
     top: 180px;
@@ -347,6 +393,12 @@ const Javascript = styled.img`
     left: 10px;
     bottom: 0px;
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    width: 70px;
+    left: 20px;
+    bottom: 0px;
+  }
 `;
 const Html = styled.img`
   position: absolute;
@@ -366,6 +418,12 @@ const Html = styled.img`
     left: -20px;
     bottom: 300px;
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    width: 70px;
+    left: -30px;
+    bottom: 800px;
+  }
 `;
 const Css = styled.img`
   position: absolute;
@@ -379,6 +437,11 @@ const Css = styled.img`
   }
   @media only screen and (max-width: 600px) {
     width: 50px;
+    left: 10px;
+    bottom: 435px;
+  }
+  @media only screen and (min-width: 600px) {
+    width: 70px;
     left: 10px;
     bottom: 435px;
   }
