@@ -37,6 +37,9 @@ const ContainerText = styled.div`
   @media only screen and (max-width: 600px) {
     order: 1;
   }
+  @media only screen and (min-width: 600px) {
+    order: 1;
+  }
 `;
 const Picture = styled.img`
   width: 100%;
@@ -48,6 +51,10 @@ const Picture = styled.img`
     left: -20px;
     bottom: 40px;
   }
+  @media only screen and (min-width: 600px) {
+    left: -20px;
+    bottom: 40px;
+  }
 `;
 const Title = styled.h2`
   color: ${(props) =>
@@ -56,6 +63,11 @@ const Title = styled.h2`
   @media only screen and (max-width: 600px) {
     text-align: center;
   }
+  @media only screen and (min-width: 600px) {
+    text-align: center;
+  }
+  left: -20px;
+  bottom: 40px;
 `;
 const MainText = styled.p`
   color: gray;
@@ -78,6 +90,9 @@ const Container = styled.div`
         `}
   /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    grid-template-columns: auto;
+  }
+  @media only screen and (min-width: 600px) {
     grid-template-columns: auto;
   }
 `;

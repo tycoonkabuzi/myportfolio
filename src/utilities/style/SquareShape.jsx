@@ -9,6 +9,10 @@ const SquareShape = styled.div`
     props.profileSquare &&
     `   width: 80%;  height: 430px;  @media only screen and (max-width: 600px) {
     order: 2;
+
+  }
+   @media only screen and (min-width: 600px) {
+    order:2;
   }`}
   ${(props) =>
     props.projectSquare &&
