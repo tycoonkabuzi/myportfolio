@@ -41,6 +41,9 @@ const ProjectsLayout = styled.div`
   @media only screen and (max-width: 600px) {
     grid-template-columns: auto;
   }
+  @media only screen and (min-width: 600px) {
+    grid-template-columns: auto;
+  }
 `;
 const Rank = styled.h2`
   font-weight: 200;
@@ -75,6 +78,11 @@ const ProjectPicture = styled.img`
         `}
   /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    left: 10px;
+    bottom: 50px;
+  }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
     left: 10px;
     bottom: 50px;
   }

@@ -24,6 +24,10 @@ const Links = styled.ul`
   @media only screen and (max-width: 600px) {
     flex-wrap: wrap;
   }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    flex-wrap: wrap;
+  }
 `;
 const LinkEl = styled.li`
   list-style: none;

@@ -20,6 +20,13 @@ const SquareShape = styled.div`
     left: 10px;
     bottom: 50px;
     margin-top:50px;
-  }`}
+  }
+
+  @media only screen and (min-width: 600px) {
+    left: 10px;
+    bottom: 50px;
+    margin-top:50px;
+  }
+  `}
 `;
 export default SquareShape;
