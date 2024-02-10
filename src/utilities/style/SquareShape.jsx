@@ -10,6 +10,12 @@ const SquareShape = styled.div`
     `   width: 80%;  height: 430px;  @media only screen and (max-width: 600px) {
     order: 2;
   }`}
-  ${(props) => props.projectSquare && `   width: 50%;  height: 185px;`}
+  ${(props) =>
+    props.projectSquare &&
+    `   width: 50%;  height: 185px; @media only screen and (max-width: 600px) {
+    left: 10px;
+    bottom: 50px;
+    margin-top:50px;
+  }`}
 `;
 export default SquareShape;

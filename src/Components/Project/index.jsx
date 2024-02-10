@@ -38,6 +38,9 @@ const ProjectsLayout = styled.div`
   grid-template-columns: 50% 50%;
   align-items: center;
   gap: 5%;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: auto;
+  }
 `;
 const Rank = styled.h2`
   font-weight: 200;
@@ -70,6 +73,11 @@ const ProjectPicture = styled.img`
       : css`
           animation: ${fromRight} 1s ease-in-out backwards;
         `}
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    left: 10px;
+    bottom: 50px;
+  }
 `;
 function Project({ index, title, description, picture, clicked, price }) {
   const { theme } = useContext(ThemeContext);

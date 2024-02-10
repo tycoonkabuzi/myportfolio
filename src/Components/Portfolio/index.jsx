@@ -21,6 +21,9 @@ const Links = styled.ul`
     props.theTheme === true
       ? ` ${colors.paragraphColorDark}`
       : `${colors.paragraphColorWhite}`};
+  @media only screen and (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 `;
 const LinkEl = styled.li`
   list-style: none;
