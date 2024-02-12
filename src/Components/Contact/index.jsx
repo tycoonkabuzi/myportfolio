@@ -21,6 +21,9 @@ const Container = styled.div`
   @media only screen and (max-width: 600px) {
     grid-template-columns: auto;
   }
+  @media only screen and (min-width: 600px) {
+    grid-template-columns: auto;
+  }
 `;
 const KeepInTouchContainer = styled.div`
   width: 70%;

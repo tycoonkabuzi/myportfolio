@@ -13,6 +13,12 @@ const SquareShape = styled.div`
   }
    @media only screen and (min-width: 600px) {
     order:2;
+  }
+  
+  
+   @media only screen and (min-width: 992px) {
+    width: 50%;
+    margin:auto;
   }`}
   ${(props) =>
     props.projectSquare &&

@@ -98,6 +98,9 @@ const Main = styled.div`
   @media only screen and (min-width: 600px) {
     grid-template-columns: 80% 20%;
   }
+  @media only screen and (min-width: 992px) {
+    grid-template-columns: 60% 40%;
+  }
 `;
 const Text = styled.div`
   width: 75%;
@@ -150,6 +153,11 @@ const BigCircle = styled.div`
     top: 80px;
     left: -50px;
   }
+  @media only screen and (min-width: 992px) {
+    width: 1500px;
+    height: 1500px;
+    top: -200px;
+  }
 `;
 const SmallCircle = styled.div`
   border: solid 3px
@@ -185,6 +193,11 @@ const SmallCircle = styled.div`
     height: 400px;
     left: 90px;
     top: 300px;
+  }
+  @media only screen and (min-width: 992px) {
+    width: 500px;
+    height: 500px;
+    left: 200px;
   }
 `;
 const JavascriptText = styled.div`
@@ -377,6 +390,12 @@ const Avatar = styled.img`
   @media only screen and (max-width: 600px) {
     width: 50px;
   }
+
+  @media only screen and (min-width: 992px) {
+    width: 300px;
+    top: 300px;
+    left: 250px;
+  }
 `;
 const Javascript = styled.img`
   position: absolute;
@@ -398,6 +417,11 @@ const Javascript = styled.img`
     width: 70px;
     left: 20px;
     bottom: 0px;
+  }
+  @media only screen and (min-width: 992px) {
+    width: 100px;
+    bottom: 0px;
+    left: 5px;
   }
 `;
 const Html = styled.img`
@@ -424,6 +448,11 @@ const Html = styled.img`
     left: -30px;
     bottom: 800px;
   }
+  @media only screen and (min-width: 992px) {
+    width: 100px;
+    bottom: 700px;
+    left: -50px;
+  }
 `;
 const Css = styled.img`
   position: absolute;
@@ -444,6 +473,11 @@ const Css = styled.img`
     width: 70px;
     left: 10px;
     bottom: 435px;
+  }
+  @media only screen and (min-width: 992px) {
+    width: 100px;
+    bottom: 375px;
+    left: 10px;
   }
 `;
 const Line = styled.span`

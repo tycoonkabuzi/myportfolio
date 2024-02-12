@@ -59,6 +59,11 @@ const Main = styled.div`
     grid-template-columns: 50% 20% 20%;
     gap: 40px;
   }
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: 50% 20% 20%;
+    gap: 40px;
+  }
 `;
 const Logo = styled.h3`
   display: block;
@@ -67,7 +72,21 @@ const Logo = styled.h3`
   ${(props) =>
     props.propsTheme === true ? `color:${colors.primary};` : `color:white;`}
   @media only screen and (max-width: 600px) {
-    width: 200px;
+    width: 100px;
+    z-index: 2;
+    color: ${(props) =>
+      props.propsTheme === true && props.isActive === false
+        ? `${colors.secondary} `
+        : `${
+            props.isActive === true && props.propsTheme === false
+              ? `${colors.primary}`
+              : `${colors.secondary}`
+          }`};
+    margin-left: 20px;
+  }
+  @media only screen and (min-width: 600px) {
+    width: 300px;
+    margin-left: 100px;
     z-index: 2;
     color: ${(props) =>
       props.propsTheme === true && props.isActive === false
@@ -78,8 +97,9 @@ const Logo = styled.h3`
               : `${colors.secondary}`
           }`};
   }
-  @media only screen and (min-width: 600px) {
-    width: 400px;
+  @media only screen and (min-width: 768px) {
+    width: 200px;
+    margin-left: 0;
     z-index: 2;
     color: ${(props) =>
       props.propsTheme === true && props.isActive === false
@@ -213,6 +233,14 @@ const ThemeChanger = styled.div`
   }
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
+    position: absolute;
+    position: inherit;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    grid-column: 2;
+  }
+  @media only screen and (min-width: 768px) {
     position: absolute;
     position: inherit;
     width: 40px;

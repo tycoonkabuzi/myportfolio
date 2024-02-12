@@ -55,6 +55,9 @@ const Picture = styled.img`
     left: -20px;
     bottom: 40px;
   }
+  @media only screen and (min-width: 992px) {
+    width: 100%;
+  }
 `;
 const Title = styled.h2`
   color: ${(props) =>

@@ -80,11 +80,17 @@ const ProjectPicture = styled.img`
 @media only screen and (max-width: 600px) {
     left: 10px;
     bottom: 50px;
+    width: 300px;
   }
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
     left: 10px;
     bottom: 50px;
+  }
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    left: 10px;
+    top: 20px;
   }
 `;
 function Project({ index, title, description, picture, clicked, price }) {
