@@ -229,6 +229,12 @@ const JavascriptText = styled.div`
     bottom: 80px;
     filter: none;
   }
+  @media only screen and (min-width: 992px) {
+    font-size: 20px;
+    left: -5px;
+    bottom: 80px;
+    filter: blur(2px);
+  }
 `;
 const SassText = styled.div`
   font-size: 55px;
@@ -262,6 +268,12 @@ const SassText = styled.div`
     top: 200px;
     filter: none;
   }
+  @media only screen and (min-width: 992px) {
+    font-size: 20px;
+    left: -25px;
+    top: 300px;
+    filter: blur(2px);
+  }
 `;
 const CssText = styled.div`
   font-weight: 900;
@@ -294,6 +306,12 @@ const CssText = styled.div`
     top: 130px;
     filter: none;
   }
+  @media only screen and (min-width: 992px) {
+    font-size: 20px;
+    left: -10px;
+    top: 200px;
+    filter: blur(2px);
+  }
 `;
 const HtmlText = styled.div`
   font-weight: 900;
@@ -324,6 +342,12 @@ const HtmlText = styled.div`
     top: 80px;
     filter: none;
   }
+  @media only screen and (min-width: 992px) {
+    font-size: 20px;
+    left: 5px;
+    top: 100px;
+    filter: blur(2px);
+  }
 `;
 const ReactImage = styled.img`
   position: absolute;
@@ -348,6 +372,11 @@ const ReactImage = styled.img`
     left: 60px;
     top: 20px;
   }
+  @media only screen and (min-width: 992px) {
+    width: 60px;
+    left: 80px;
+    top: 10px;
+  }
 `;
 const SassImage = styled.img`
   position: absolute;
@@ -371,6 +400,11 @@ const SassImage = styled.img`
     width: 30px;
     left: 60px;
     top: 180px;
+  }
+  @media only screen and (min-width: 992px) {
+    width: 60px;
+    left: 120px;
+    top: 440px;
   }
 `;
 const Avatar = styled.img`

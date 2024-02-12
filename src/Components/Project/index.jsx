@@ -30,6 +30,9 @@ const ProjectsText = styled.div`
       : css`
           animation: ${fromLeft} 1s ease-in-out;
         `}
+  @media only screen and (min-width: 992px) {
+    margin: auto;
+  }
 `;
 const ProjectsLayout = styled.div`
   margin: auto;
@@ -43,6 +46,8 @@ const ProjectsLayout = styled.div`
   }
   @media only screen and (min-width: 600px) {
     grid-template-columns: auto;
+  }
+  @media only screen and (min-width: 992px) {
   }
 `;
 const Rank = styled.h2`

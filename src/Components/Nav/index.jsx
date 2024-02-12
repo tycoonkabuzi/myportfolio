@@ -110,6 +110,9 @@ const Logo = styled.h3`
               : `${colors.secondary}`
           }`};
   }
+  @media only screen and (min-width: 992px) {
+    margin-left: -100px;
+  }
 `;
 
 const MainLinks = styled.ul`

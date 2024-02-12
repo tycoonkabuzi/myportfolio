@@ -28,6 +28,10 @@ const Links = styled.ul`
   @media only screen and (min-width: 600px) {
     flex-wrap: wrap;
   }
+  @media only screen and (min-width: 992px) {
+    flex-wrap: wrap;
+    width: 80%;
+  }
 `;
 const LinkEl = styled.li`
   list-style: none;
