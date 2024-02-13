@@ -85,12 +85,6 @@ const Main = styled.div`
   padding-bottom: 20px;
   justify-content: space-around;
 
-  @media only screen and (min-width: 1200px) {
-    grid-template-columns: 47% 53%;
-  }
-  @media only screen and (max-width: 1200px) {
-    grid-template-columns: 40% 60%;
-  }
   @media only screen and (max-width: 600px) {
     grid-template-columns: 80% 20%;
   }
@@ -100,6 +94,9 @@ const Main = styled.div`
   }
   @media only screen and (min-width: 992px) {
     grid-template-columns: 60% 40%;
+  }
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: 40% 60%;
   }
 `;
 const Text = styled.div`
@@ -124,8 +121,6 @@ const Graphics = styled.div`
       : css`
           animation: ${reversedRight} 0.6s ease-in-out forwards;
         `}
-  @media only screen and (min-width: 1200px) {
-  }
 `;
 const BigCircle = styled.div`
   border: solid 3px
@@ -137,16 +132,6 @@ const BigCircle = styled.div`
   border-radius: 1500px;
   position: absolute;
 
-  @media only screen and (min-width: 1200px) {
-    width: 1200px;
-    height: 1200px;
-    top: -200px;
-  }
-  @media only screen and (max-width: 1200px) {
-    width: 1500px;
-    height: 1500px;
-    top: -300px;
-  }
   @media only screen and (max-width: 600px) {
     width: 600px;
     height: 600px;
@@ -156,6 +141,11 @@ const BigCircle = styled.div`
   @media only screen and (min-width: 992px) {
     width: 1500px;
     height: 1500px;
+    top: -200px;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 1200px;
+    height: 1200px;
     top: -200px;
   }
 `;
@@ -169,17 +159,6 @@ const SmallCircle = styled.div`
   position: absolute;
   top: 400px;
   animation: ${ReversSpin} ease-in-out infinite 4s running;
-  @media only screen and (min-width: 1200px) {
-    width: 500px;
-    height: 500px;
-    right: 20px;
-    top: 200px;
-  }
-  @media only screen and (max-width: 1200px) {
-    width: 800px;
-    height: 800px;
-    left: 300px;
-  }
 
   @media only screen and (max-width: 600px) {
     width: 200px;
@@ -199,6 +178,12 @@ const SmallCircle = styled.div`
     height: 500px;
     left: 200px;
   }
+  @media only screen and (min-width: 1200px) {
+    width: 500px;
+    height: 500px;
+    right: 20px;
+    top: 200px;
+  }
 `;
 const JavascriptText = styled.div`
   font-size: 44px;
@@ -206,17 +191,6 @@ const JavascriptText = styled.div`
   color: ${colors.javascriptColor};
   position: absolute;
 
-  left: -120px;
-  @media only screen and (min-width: 1200px) {
-    font-size: 30px;
-    bottom: 200px;
-    filter: blur(3px);
-  }
-  @media only screen and (max-width: 1200px) {
-    filter: blur(5px);
-    font-size: 44px;
-    bottom: 350px;
-  }
   @media only screen and (max-width: 600px) {
     font-size: 10px;
     left: -10px;
@@ -235,6 +209,12 @@ const JavascriptText = styled.div`
     bottom: 80px;
     filter: blur(2px);
   }
+  @media only screen and (min-width: 1200px) {
+    font-size: 30px;
+    bottom: 200px;
+    filter: blur(3px);
+    left: -50px;
+  }
 `;
 const SassText = styled.div`
   font-size: 55px;
@@ -244,18 +224,7 @@ const SassText = styled.div`
   position: absolute;
   left: 650px;
   top: 80px;
-  @media only screen and (min-width: 1200px) {
-    font-size: 40px;
-    filter: blur(3px);
-    left: 400px;
-    top: 50px;
-  }
-  @media only screen and (max-width: 1200px) {
-    font-size: 55px;
-    filter: blur(5px);
-    left: 650px;
-    top: 80px;
-  }
+
   @media only screen and (max-width: 600px) {
     font-size: 10px;
     right: 0px;
@@ -274,26 +243,20 @@ const SassText = styled.div`
     top: 300px;
     filter: blur(2px);
   }
+  @media only screen and (min-width: 1200px) {
+    font-size: 40px;
+    filter: blur(3px);
+    left: 400px;
+    top: 50px;
+  }
 `;
 const CssText = styled.div`
   font-weight: 900;
   color: ${colors.cssColor};
-
   position: absolute;
   bottom: 350px;
   left: 750px;
-  @media only screen and (min-width: 1200px) {
-    filter: blur(3px);
-    font-size: 40px;
-    bottom: 200px;
-    left: 450px;
-  }
-  @media only screen and (max-width: 1200px) {
-    font-size: 55px;
-    filter: blur(5px);
-    bottom: 350px;
-    left: 750px;
-  }
+
   @media only screen and (max-width: 600px) {
     font-size: 10px;
     left: 150px;
@@ -312,24 +275,18 @@ const CssText = styled.div`
     top: 200px;
     filter: blur(2px);
   }
+  @media only screen and (min-width: 1200px) {
+    filter: blur(3px);
+    font-size: 40px;
+    bottom: 200px;
+    left: 450px;
+  }
 `;
 const HtmlText = styled.div`
   font-weight: 900;
   color: ${colors.htmlColor};
   position: absolute;
 
-  @media only screen and (min-width: 1200px) {
-    font-size: 40px;
-    filter: blur(3px);
-    bottom: -34px;
-    left: 200px;
-  }
-  @media only screen and (max-width: 1200px) {
-    font-size: 55px;
-    filter: blur(5px);
-    bottom: -35px;
-    left: 350px;
-  }
   @media only screen and (max-width: 600px) {
     font-size: 10px;
     left: 180px;
@@ -348,19 +305,16 @@ const HtmlText = styled.div`
     top: 100px;
     filter: blur(2px);
   }
+  @media only screen and (min-width: 1200px) {
+    font-size: 40px;
+    filter: blur(3px);
+    top: -35px;
+    left: 200px;
+  }
 `;
 const ReactImage = styled.img`
   position: absolute;
-  @media only screen and (min-width: 1200px) {
-    width: 90px;
-    top: 90px;
-    left: -15px;
-  }
-  @media only screen and (max-width: 1200px) {
-    width: 142px;
-    top: 150px;
-    left: -30px;
-  }
+
   @media only screen and (max-width: 600px) {
     width: 30px;
     left: 10px;
@@ -377,20 +331,15 @@ const ReactImage = styled.img`
     left: 80px;
     top: 10px;
   }
+  @media only screen and (min-width: 1200px) {
+    width: 90px;
+    top: 90px;
+    left: -15px;
+  }
 `;
 const SassImage = styled.img`
   position: absolute;
 
-  @media only screen and (min-width: 1200px) {
-    width: 90px;
-    bottom: 50px;
-    left: 30px;
-  }
-  @media only screen and (max-width: 1200px) {
-    width: 142px;
-    bottom: 20px;
-    left: 100px;
-  }
   @media only screen and (max-width: 600px) {
     width: 30px;
     left: 60px;
@@ -406,6 +355,12 @@ const SassImage = styled.img`
     left: 120px;
     top: 440px;
   }
+
+  @media only screen and (min-width: 1200px) {
+    width: 90px;
+    bottom: 40px;
+    left: 170px;
+  }
 `;
 const Avatar = styled.img`
   position: relative;
@@ -413,14 +368,6 @@ const Avatar = styled.img`
   top: 200px;
   margin: auto;
 
-  @media only screen and (min-width: 1200px) {
-    width: 420px;
-    margin-top: 90px;
-  }
-  @media only screen and (max-width: 1200px) {
-    width: 630px;
-    margin-top: 150px;
-  }
   @media only screen and (max-width: 600px) {
     width: 50px;
   }
@@ -430,17 +377,14 @@ const Avatar = styled.img`
     top: 300px;
     left: 250px;
   }
+  @media only screen and (min-width: 1200px) {
+    width: 420px;
+    margin-top: 20px;
+  }
 `;
 const Javascript = styled.img`
   position: absolute;
-  top: 400px;
-  left: -70px;
-  @media only screen and (min-width: 1200px) {
-    width: 120px;
-  }
-  @media only screen and (max-width: 1200px) {
-    width: 191px;
-  }
+
   @media only screen and (max-width: 600px) {
     width: 50px;
     left: 10px;
@@ -457,20 +401,15 @@ const Javascript = styled.img`
     bottom: 0px;
     left: 5px;
   }
+  @media only screen and (min-width: 1200px) {
+    width: 120px;
+    top: 400px;
+    left: -70px;
+  }
 `;
 const Html = styled.img`
   position: absolute;
 
-  @media only screen and (min-width: 1200px) {
-    width: 70px;
-    bottom: 500px;
-    left: -30px;
-  }
-  @media only screen and (max-width: 1200px) {
-    width: 96px;
-    bottom: 635px;
-    left: -50px;
-  }
   @media only screen and (max-width: 600px) {
     width: 50px;
     left: -20px;
@@ -487,17 +426,17 @@ const Html = styled.img`
     bottom: 700px;
     left: -50px;
   }
+  @media only screen and (min-width: 1200px) {
+    width: 70px;
+    bottom: 450px;
+    left: -30px;
+  }
 `;
 const Css = styled.img`
   position: absolute;
   bottom: 200px;
   left: 50px;
-  @media only screen and (min-width: 1200px) {
-    width: 120px;
-  }
-  @media only screen and (max-width: 1200px) {
-    width: 211px;
-  }
+
   @media only screen and (max-width: 600px) {
     width: 50px;
     left: 10px;
@@ -512,6 +451,12 @@ const Css = styled.img`
     width: 100px;
     bottom: 375px;
     left: 10px;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 120px;
+    position: absolute;
+    bottom: 200px;
+    left: 50px;
   }
 `;
 const Line = styled.span`
