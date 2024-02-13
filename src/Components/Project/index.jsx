@@ -47,8 +47,8 @@ const ProjectsLayout = styled.div`
   @media only screen and (min-width: 600px) {
     grid-template-columns: auto;
   }
-  @media only screen and (min-width: 992px) {
-    background-color: red;
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: 50% 50%;
   }
 `;
 const Rank = styled.h2`
