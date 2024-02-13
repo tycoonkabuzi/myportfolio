@@ -24,6 +24,9 @@ const Buttons = styled(Link)`
   width: 150px;
   padding: 10px;
   text-align: center;
+  @media only screen and (max-width: 600px) {
+    width: 100px;
+  }
   color: ${(props) => (props.theTheme ? `${colors.primary}` : `white`)};
   animation: ${(props) =>
     props.theAnimation === true

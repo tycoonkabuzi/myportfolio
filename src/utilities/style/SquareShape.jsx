@@ -19,6 +19,10 @@ const SquareShape = styled.div`
    @media only screen and (min-width: 992px) {
     width: 50%;
     margin:auto;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 70%;
+    margin:auto;
   }`}
   ${(props) =>
     props.projectSquare &&
@@ -33,6 +37,7 @@ const SquareShape = styled.div`
     bottom: 50px;
     margin-top:50px;
   }
+  
    @media only screen and (min-width: 992px) {
     margin-left:70px;
   }

@@ -48,6 +48,7 @@ const ProjectsLayout = styled.div`
     grid-template-columns: auto;
   }
   @media only screen and (min-width: 992px) {
+    background-color: red;
   }
 `;
 const Rank = styled.h2`
@@ -84,7 +85,7 @@ const ProjectPicture = styled.img`
   /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     left: 10px;
-    bottom: 50px;
+    bottom: 40px;
     width: 300px;
   }
   /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -96,6 +97,8 @@ const ProjectPicture = styled.img`
   @media only screen and (min-width: 768px) {
     left: 10px;
     top: 20px;
+  }
+  @media only screen and (min-width: 1200px) {
   }
 `;
 function Project({ index, title, description, picture, clicked, price }) {

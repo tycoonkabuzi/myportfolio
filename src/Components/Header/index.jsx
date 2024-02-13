@@ -96,7 +96,7 @@ const Main = styled.div`
     grid-template-columns: 60% 40%;
   }
   @media only screen and (min-width: 1200px) {
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 50% 50%;
   }
 `;
 const Text = styled.div`
@@ -123,7 +123,7 @@ const Graphics = styled.div`
         `}
 `;
 const BigCircle = styled.div`
-  border: solid 3px
+  border: solid 1px
     ${(props) =>
       props.propstheme === true
         ? `${colors.circleWhite}`
@@ -135,6 +135,12 @@ const BigCircle = styled.div`
   @media only screen and (max-width: 600px) {
     width: 600px;
     height: 600px;
+    top: 80px;
+    left: -50px;
+  }
+  @media only screen and (min-width: 600px) {
+    width: 800px;
+    height: 800px;
     top: 80px;
     left: -50px;
   }
@@ -150,7 +156,7 @@ const BigCircle = styled.div`
   }
 `;
 const SmallCircle = styled.div`
-  border: solid 3px
+  border: solid 1px
     ${(props) =>
       props.propstheme === true
         ? `${colors.circleWhite}`
@@ -213,7 +219,7 @@ const JavascriptText = styled.div`
     font-size: 30px;
     bottom: 200px;
     filter: blur(3px);
-    left: -50px;
+    left: -90px;
   }
 `;
 const SassText = styled.div`
@@ -347,8 +353,8 @@ const SassImage = styled.img`
   }
   @media only screen and (min-width: 600px) {
     width: 30px;
-    left: 60px;
-    top: 180px;
+    left: 100px;
+    top: 360px;
   }
   @media only screen and (min-width: 992px) {
     width: 60px;
@@ -378,8 +384,10 @@ const Avatar = styled.img`
     left: 250px;
   }
   @media only screen and (min-width: 1200px) {
-    width: 420px;
-    margin-top: 20px;
+    position: relative;
+    left: 300px;
+    top: 350px;
+    margin: auto;
   }
 `;
 const Javascript = styled.img`
@@ -387,19 +395,19 @@ const Javascript = styled.img`
 
   @media only screen and (max-width: 600px) {
     width: 50px;
-    left: 10px;
-    bottom: 0px;
+    left: 34px;
+    bottom: 100px;
   }
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
     width: 70px;
-    left: 20px;
-    bottom: 0px;
+    left: 54px;
+    bottom: 100px;
   }
   @media only screen and (min-width: 992px) {
     width: 100px;
-    bottom: 0px;
-    left: 5px;
+    top: 300px;
+    left: 50px;
   }
   @media only screen and (min-width: 1200px) {
     width: 120px;
@@ -418,12 +426,12 @@ const Html = styled.img`
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
     width: 70px;
-    left: -30px;
-    bottom: 800px;
+    left: 50px;
+    top: 100px;
   }
   @media only screen and (min-width: 992px) {
     width: 100px;
-    bottom: 700px;
+    top: 700px;
     left: -50px;
   }
   @media only screen and (min-width: 1200px) {
@@ -444,13 +452,13 @@ const Css = styled.img`
   }
   @media only screen and (min-width: 600px) {
     width: 70px;
-    left: 10px;
-    bottom: 435px;
+    left: -34px;
+    bottom: 335px;
   }
   @media only screen and (min-width: 992px) {
     width: 100px;
     bottom: 375px;
-    left: 10px;
+    left: 0px;
   }
   @media only screen and (min-width: 1200px) {
     width: 120px;

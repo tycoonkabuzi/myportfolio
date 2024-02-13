@@ -223,6 +223,8 @@ const Links = styled(Link)`
   @media only screen and (max-width: 600px) {
     display: block;
     padding-top: 50px;
+    font-size: 40px;
+    font-weight: 200;
     color: ${(props) =>
       props.propsTheme === true
         ? ` ${colors.paragraphColorWhite}`
@@ -232,15 +234,20 @@ const Links = styled(Link)`
   @media only screen and (min-width: 600px) {
     display: block;
     padding-top: 50px;
+    font-size: 40px;
+    font-weight: 200;
     color: ${(props) =>
       props.propsTheme === true
         ? ` ${colors.paragraphColorWhite}`
         : ` ${colors.paragraphColorDark}`};
   }
   @media only screen and (min-width: 1200px) {
+    font-weight: 400;
+    font-size: 15px;
     display: inline;
     text-decoration: none;
     margin-left: 50px;
+
     color: ${(props) =>
       props.propsTheme === true
         ? ` ${colors.paragraphColorDark}`
@@ -390,6 +397,7 @@ const HamburgerMenu = styled.div`
     display: block;
     z-index: 1;
     grid-column: 3;
+    margin-right: 40px;
   }
   @media only screen and (min-width: 600px) {
     display: block;

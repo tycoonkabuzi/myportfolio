@@ -40,6 +40,9 @@ const ContainerText = styled.div`
   @media only screen and (min-width: 600px) {
     order: 1;
   }
+  @media only screen and (min-width: 1200px) {
+    order: 2;
+  }
 `;
 const Picture = styled.img`
   width: 100%;
@@ -55,8 +58,14 @@ const Picture = styled.img`
     left: -20px;
     bottom: 40px;
   }
+  @media only screen and (min-width: 768px) {
+    width: 30%;
+  }
   @media only screen and (min-width: 992px) {
     width: 100%;
+  }
+  @media only screen and (min-width: 1200px) {
+    order: 1;
   }
 `;
 const Title = styled.h2`
@@ -68,6 +77,9 @@ const Title = styled.h2`
   }
   @media only screen and (min-width: 600px) {
     text-align: center;
+  }
+  @media only screen and (min-width: 1200px) {
+    text-align: left;
   }
   left: -20px;
   bottom: 40px;
@@ -81,7 +93,7 @@ const MainText = styled.p`
 `;
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+
   gap: 50px;
   ${(props) =>
     props.theAnimation === true
@@ -97,6 +109,9 @@ const Container = styled.div`
   }
   @media only screen and (min-width: 600px) {
     grid-template-columns: auto;
+  }
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: 50% 50%;
   }
 `;
 const ButtonContainer = styled.div`
