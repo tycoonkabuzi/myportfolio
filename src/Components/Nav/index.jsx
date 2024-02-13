@@ -64,6 +64,13 @@ const Main = styled.div`
     grid-template-columns: 50% 20% 20%;
     gap: 40px;
   }
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: 50% 20% 30%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    gap: 40px;
+  }
 `;
 const Logo = styled.h3`
   display: block;
@@ -113,6 +120,14 @@ const Logo = styled.h3`
   @media only screen and (min-width: 992px) {
     margin-left: -100px;
   }
+  @media only screen and (min-width: 1200px) {
+    display: block;
+    width: 250px;
+
+    text-align: left;
+    ${(props) =>
+      props.propsTheme === true ? `color:${colors.primary};` : `color:white;`}
+  }
 `;
 
 const MainLinks = styled.ul`
@@ -155,7 +170,6 @@ const MainLinks = styled.ul`
     width: 100%; /* Change this to 100% */
     position: fixed; /* You might want to change this according to your layout */
     z-index: 1;
-    height: 100vh;
     padding-bottom: 200px;
     padding-top: 100px;
     margin-top: 0;
@@ -182,6 +196,15 @@ const MainLinks = styled.ul`
       props.propTheme === false
         ? ` background-color: ${colors.secondary};`
         : `background-color: ${colors.primary}`}
+  }
+  @media only screen and (min-width: 1200px) {
+    width: auto;
+    margin: auto;
+    display: block;
+    padding-bottom: 0;
+    padding-top: 0;
+    position: static;
+    z-index: 1;
   }
 `;
 const Links = styled(Link)`
@@ -214,20 +237,28 @@ const Links = styled(Link)`
         ? ` ${colors.paragraphColorWhite}`
         : ` ${colors.paragraphColorDark}`};
   }
+  @media only screen and (min-width: 1200px) {
+    display: inline;
+    text-decoration: none;
+    margin-left: 50px;
+    color: ${(props) =>
+      props.propsTheme === true
+        ? ` ${colors.paragraphColorDark}`
+        : ` ${colors.paragraphColorWhite}`};
+  }
 `;
 const ThemeChanger = styled.div`
-  position: relative;
   width: 80px;
   height: 40px;
   border-radius: 40px;
   overflow: hidden;
+  grid-column: 2;
   ${(props) =>
     props.propsTheme === true
       ? `background-color:${colors.nightColor};`
       : `background-color: ${colors.dayColor};`}
 
   @media only screen and (max-width: 600px) {
-    position: absolute;
     position: inherit;
     width: 40px;
     height: 40px;
@@ -236,7 +267,6 @@ const ThemeChanger = styled.div`
   }
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
-    position: absolute;
     position: inherit;
     width: 40px;
     height: 40px;
@@ -250,6 +280,18 @@ const ThemeChanger = styled.div`
     height: 40px;
     z-index: 2;
     grid-column: 2;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 80px;
+    height: 40px;
+    border-radius: 40px;
+    position: static;
+    overflow: hidden;
+    grid-column: 3;
+    ${(props) =>
+      props.propsTheme === true
+        ? `background-color:${colors.nightColor};`
+        : `background-color: ${colors.dayColor};`}
   }
 `;
 const Circle = styled.div`
@@ -278,6 +320,19 @@ const Circle = styled.div`
         ? `transform: translatex(0);background-color: ${colors.dayColor}; `
         : `background-color: ${colors.nightColor};`}
   }
+  @media only screen and (min-width: 1200px) {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 1px 10px 17px black;
+
+    ${(props) =>
+      props.propsTheme === true
+        ? `transform: translatex(40px);background-color: ${colors.dayColor}; `
+        : `background-color: ${colors.nightColor};`}
+  }
 `;
 
 const Sun = styled.img`
@@ -292,6 +347,12 @@ const Sun = styled.img`
   @media only screen and (min-width: 600px) {
     left: 5px;
     ${(props) => (props.propsTheme === true ? `right:0;` : `left: -40px;`)};
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 30px;
+    position: absolute;
+    top: 5px;
+    ${(props) => (props.propsTheme === true ? `right:4px;` : `left: 40px;`)}
   }
 `;
 
@@ -310,6 +371,13 @@ const Moon = styled.img`
     right: 5px;
     ${(props) => (props.propsTheme === true ? `right:-40px;` : `left: 5px;`)};
   }
+  @media only screen and (min-width: 1200px) {
+    position: absolute;
+    right: -40px;
+    width: 30px;
+    top: 5px;
+    ${(props) => (props.propsTheme === true ? `right:45px;` : `right:10px;`)}
+  }
 `;
 
 const HamburgerMenu = styled.div`
@@ -327,6 +395,10 @@ const HamburgerMenu = styled.div`
     display: block;
     z-index: 1;
     grid-column: 3;
+  }
+  @media only screen and (min-width: 1200px) {
+    display: none;
+    grid-column: 0;
   }
 `;
 const Line = styled.span`
