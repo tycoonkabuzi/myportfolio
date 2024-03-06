@@ -2,6 +2,7 @@ const colors = {
   primary: "#1f252f",
   primaryTinted: "#232a37",
   secondary: "#eeeeee",
+  secondaryTinted: "#e6e6e6",
   circleWhite: "#dadada",
   circleDark: "#373a40",
   secondaryYellow: "#e6b419",

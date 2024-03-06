@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Buttons from "../../utilities/style/Buttons";
 import image from "../../Assets/picature.jpg";
 import colors from "../../utilities/style/Colors";
-
+import { ThemeContext } from "../../utilities/context";
+import { useContext } from "react";
 const Main = styled.div``;
 const Container = styled.div`
   padding-top: 40px;
@@ -13,6 +14,10 @@ const Container = styled.div`
   margin: auto;
   margin-top: 130px;
   border-radius: 10px;
+  ${(props) =>
+    props.theTheme === true
+      ? `background-color: ${colors.secondaryTinted}`
+      : `background-color: ${colors.primaryTinted}`}
 `;
 const Profile = styled.div``;
 const Picture = styled.img`
@@ -24,10 +29,22 @@ const Text = styled.div`
 `;
 const Name = styled.h3`
   text-align: center;
+  color: ${(props) =>
+    props.theTheme === true
+      ? `
+    ${colors.primary}
+  `
+      : `  ${colors.secondary}`};
 `;
 const Title = styled.p`
   font-size: 13px;
   text-align: center;
+  color: ${(props) =>
+    props.theTheme === true
+      ? `
+    ${colors.primary}
+  `
+      : `  ${colors.secondary}`};
 `;
 const Location = styled.h5`
   color: ${colors.primaryPurpule};
@@ -48,17 +65,18 @@ const ContainerButton = styled.div`
 `;
 
 function HireMe() {
+  const { theme } = useContext(ThemeContext);
   return (
     <Main>
-      <Container>
+      <Container theTheme={theme}>
         <Profile>
           <Icon>
             <Picture src={image} />
           </Icon>
           <Text>
-            <Name> Kabuzi Ntwali</Name>
+            <Name theTheme={theme}> Kabuzi Ntwali</Name>
             <Location>Krakow, Poland</Location>
-            <Title>Frontend developper, and designer</Title>
+            <Title theTheme={theme}>Frontend developper, and designer</Title>
           </Text>
         </Profile>
         <ContainerButton>
