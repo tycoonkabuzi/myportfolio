@@ -2,7 +2,8 @@ import styled from "styled-components";
 import colors from "../../utilities/style/Colors";
 import Buttons from "../../utilities/style/Buttons";
 import { ThemeContext } from "../../utilities/context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+
 const Main = styled.div`
   padding-top: 150px;
 `;
@@ -24,6 +25,9 @@ const Container = styled.div`
   @media only screen and (min-width: 600px) {
     grid-template-columns: auto;
   }
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: 50% 50%;
+  }
 `;
 const KeepInTouchContainer = styled.div`
   width: 70%;
@@ -41,6 +45,14 @@ const Title = styled.h1`
     props.theme === true
       ? `${colors.nightColor}`
       : `${colors.paragraphColorWhite}`};
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    font-size: 30px;
+  }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    font-size: 50px;
+  }
 `;
 const SmallDescription = styled.div`
   padding-bottom: 50px;
@@ -104,9 +116,47 @@ const Footer = styled.div`
       ? `${colors.nightColor}`
       : `${colors.paragraphColorWhite}`};
 `;
-
+const ErrorMessage = styled.p`
+  color: red;
+`;
 function Contact() {
   const { theme } = useContext(ThemeContext);
+  const [message, setMessage] = useState({
+    name: "",
+    email: "",
+    messageContent: "",
+  });
+  const [errorName, setErrorName] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  function handleChange(e) {
+    const value = e.target.value;
+
+    const name = e.target.name;
+    setMessage({
+      ...message,
+      [name]: value,
+    });
+    if (!message.email.includes("@")) {
+      setErrorEmail(" your email adress does not contains @");
+    } else if (!message.email.includes(".")) {
+      setErrorEmail("your email adress is incorrect");
+    } else {
+      setErrorEmail("");
+    }
+    if (message.name.includes(1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 0)) {
+      setErrorName("Numbers are not allowed in name");
+    } else if (message.name.includes(".")) {
+      setErrorName("Names do not contains special characters");
+    } else {
+      setErrorName("");
+    }
+  }
+  function handleSubmit() {
+    alert(
+      `${message.name} your email has been sent successfull using ${message.email}`
+    );
+  }
+
   return (
     <Main id="contact">
       <KeepInTouchContainer>
@@ -127,11 +177,36 @@ function Contact() {
               we are trying to see the video.
             </MainText>
           </TextContainer>
-          <FormContainer action="">
-            <TextField theme={theme} type="text" placeholder=" Your name" />
-            <TextField theme={theme} type="Email" placeholder="Email Addres" />
-            <Message theme={theme} placeholder="Message" />
-            <Buttons secondary theme={theme}>
+          <FormContainer action="mailto:kabuzitycoon@gmail.com">
+            <TextField
+              onChange={handleChange}
+              theme={theme}
+              type="text"
+              name="name"
+              placeholder=" Your name"
+            />
+            <ErrorMessage>{errorName}</ErrorMessage>
+            <TextField
+              onChange={handleChange}
+              theme={theme}
+              name="email"
+              type="Email"
+              placeholder="Email Addres"
+            />
+            <ErrorMessage>{errorEmail}</ErrorMessage>
+            <Message
+              name="messageContent"
+              onChange={handleChange}
+              theme={theme}
+              placeholder="Message"
+            />
+
+            <Buttons
+              type="submit"
+              secondary
+              theme={theme}
+              onClick={handleSubmit}
+            >
               Keep in Touch
             </Buttons>
           </FormContainer>

@@ -412,7 +412,7 @@ const HamburgerMenu = styled.div`
 const Line = styled.span`
   transition: 2s ease-in both;
   display: block;
-  width: 40px;
+  width: 30px;
   height: 2px;
   margin-bottom: 10px;
   background-color: ${(props) =>
@@ -435,7 +435,7 @@ const Line = styled.span`
     `${props.isActive === true && ` display:none; padding-top:20px; `}  `}
   ${(props) =>
     props.thirdLine &&
-    `  width: 25px; float:right; ${
+    `  width: 20px; float:right; ${
       props.isActive === true &&
       `transform:rotate(-40deg); margin-left:0px; margin-top:-13px; width: 40px;  `
     } `}

@@ -76,6 +76,8 @@ function Portfolio() {
             title={element.title}
             description={element.description}
             picture={element.projectImage}
+            rank={element.rank}
+            link={element.link}
             clicked={clicked}
           />
         ))}

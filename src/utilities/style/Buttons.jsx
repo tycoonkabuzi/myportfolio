@@ -19,13 +19,14 @@ const zoomOut = keyframes`
   }
 `;
 const Buttons = styled(Link)`
+  font-size: 13px;
   display: block;
   text-decoration: none;
-  width: 150px;
+  width: auto;
   padding: 10px;
   text-align: center;
   @media only screen and (max-width: 600px) {
-    width: 100px;
+    width: auto;
   }
   color: ${(props) => (props.theTheme ? `${colors.primary}` : `white`)};
   animation: ${(props) =>

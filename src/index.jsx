@@ -4,14 +4,22 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./Pages/Home";
 import GlobalStyle from "./utilities/style/GlobalStyle";
 import { ThemeProvider } from "./utilities/context";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HireMe from "./Components/HireMe";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <GlobalStyle />
-      <Home />
+      <Router>
+        <GlobalStyle />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/hire" element={<HireMe />} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   </React.StrictMode>
 );

@@ -479,6 +479,21 @@ const Title = styled.h1`
   font-size: 40px;
   color: ${(props) =>
     props.propstheme === true ? ` ${colors.primary}` : `${colors.secondary}`};
+  @media only screen and (max-width: 600px) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 992px) {
+    font-size: 40px;
+  }
+  @media only screen and (min-width: 1200px) {
+    font-size: 40px;
+  }
 `;
 const Gradient = styled.span`
   background: ${colors.gradient};

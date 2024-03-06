@@ -1,6 +1,9 @@
 import colors from "../../utilities/style/Colors";
 import SquareShape from "../../utilities/style/SquareShape";
+import blackOpen from "../../Assets/blackOpen.png";
+import whiteOpen from "../../Assets/whiteOpen.png";
 import styled, { css, keyframes } from "styled-components";
+import { Link } from "react-router-dom";
 import { ThemeContext } from "../../utilities/context";
 import { useContext } from "react";
 
@@ -101,15 +104,42 @@ const ProjectPicture = styled.img`
   @media only screen and (min-width: 1200px) {
   }
 `;
-function Project({ index, title, description, picture, clicked, price }) {
+const OpenProject = styled(Link)`
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-decoration: none;
+  gap: 15px;
+  &:hover {
+    border-bottom: 1px solid
+      ${(props) =>
+        props.theTheme === true ? `${colors.primary}` : `${colors.secondary}`};
+    cursor: pointer;
+    width: 157px;
+    padding-bottom: 7px;
+  }
+`;
+const PreviewIcon = styled.img`
+  width: 20px;
+`;
+const TextPreview = styled.div`
+  color: ${(props) =>
+    props.theTheme === true ? `${colors.primary}` : `${colors.secondary}`};
+`;
+function Project({ index, title, description, picture, clicked, rank, link }) {
   const { theme } = useContext(ThemeContext);
   const theIndex = parseInt(index);
   return (
     <ProjectsLayout theIndex={theIndex}>
       <ProjectsText theIndex={theIndex} clicked={clicked}>
-        <Rank> Project {theIndex} </Rank>
+        <Rank> Project {rank} </Rank>
         <ProjectTitle theTheme={theme}>{title}</ProjectTitle>
         <ProjectDescription theTheme={theme}>{description}</ProjectDescription>
+        <OpenProject theTheme={theme} to={link}>
+          <TextPreview theTheme={theme}> Preview Project</TextPreview>
+          <PreviewIcon src={theme === true ? blackOpen : whiteOpen} />
+        </OpenProject>
       </ProjectsText>
       <SquareShape projectSquare theIndex={index}>
         <ProjectPicture

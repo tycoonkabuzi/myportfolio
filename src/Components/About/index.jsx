@@ -5,6 +5,8 @@ import { useContext } from "react";
 import { ThemeContext } from "../../utilities/context";
 import Buttons from "../../utilities/style/Buttons";
 import SquareShape from "../../utilities/style/SquareShape";
+import resume from "../../Assets/Docs/Updated CV.pdf";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -36,6 +38,8 @@ const Main = styled.div`
 const ContainerText = styled.div`
   @media only screen and (max-width: 600px) {
     order: 1;
+
+    margin: auto;
   }
   @media only screen and (min-width: 600px) {
     order: 1;
@@ -85,6 +89,7 @@ const Title = styled.h2`
   bottom: 40px;
 `;
 const MainText = styled.p`
+  width: 100%;
   color: gray;
   color: ${(props) =>
     props.theTheme === true
@@ -119,24 +124,13 @@ const ButtonContainer = styled.div`
   grid-template-columns: auto auto;
   width: 350px;
 `;
-const ColorFullText = styled.span`
-  color: red;
+
+const TheLink = styled(Link)`
+  text-decoration: none;
 `;
 function About() {
   const [animation, setAnimation] = useState(false);
-  const [textAbout, setTextAbout] = useState(
-    "Hello! I'm Kabuzi Ntwali, a passionate junior front-end developer with a keen interest in creating engaging and user-friendly web experiences. I am enthusiastic about leveraging my skills in HTML,CSS, and JavaScript to contribute to innovative projects and bring creative ideas to life."
-  );
-  const [newText, setNewText] = useState("");
-  function handleTextReplace(theText) {
-    if (animation === true) {
-      const theNewText = theText.slice(0, 3);
-      let replaced = theText.replace(theNewText, "");
-      setNewText(theNewText);
-      setTextAbout(replaced);
-    } else {
-    }
-  }
+
   useEffect(() => {
     function handleAnimation() {
       if (window.scrollY > 1) {
@@ -145,15 +139,12 @@ function About() {
         setAnimation(false);
       }
     }
-    window.addEventListener(
-      "scroll",
-      handleAnimation,
-      handleTextReplace(textAbout)
-    );
+    window.addEventListener("scroll", handleAnimation);
     return () => {
       window.removeEventListener("scroll", handleAnimation);
     };
   }, []);
+
   const { theme } = useContext(ThemeContext);
   return (
     <Main id="about">
@@ -165,13 +156,30 @@ function About() {
         <ContainerText>
           <Title theTheme={theme}> ABOUT ME</Title>
           <MainText theTheme={theme}>
-            <ColorFullText>{newText}</ColorFullText> {textAbout}
+            Hello! I'm Kabuzi Ntwali, a passionate junior front-end developer
+            with a keen interest in creating engaging and user-friendly web
+            experiences. I am enthusiastic about leveraging my skills in
+            HTML,CSS, and JavaScript to contribute to innovative projects and
+            bring creative ideas to life."
           </MainText>
           <ButtonContainer>
-            <Buttons theAnimation={!animation} gradient theTheme={theme}>
+            <Buttons
+              to="/hire"
+              theAnimation={!animation}
+              gradient
+              theTheme={theme}
+            >
               Hire me
             </Buttons>
-            <Buttons theAnimation={!animation} secondary theTheme={theme}>
+
+            <Buttons
+              href="../../Assets/Docs/Updated CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              theAnimation={!animation}
+              secondary
+              theTheme={theme}
+            >
               Resume
             </Buttons>
           </ButtonContainer>
