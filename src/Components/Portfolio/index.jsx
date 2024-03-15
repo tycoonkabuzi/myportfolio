@@ -64,9 +64,9 @@ function Portfolio() {
     <Main id="portfolio">
       <Title theTheme={theme}> PORTFOLIO</Title>
       <Links theTheme={theme}>
-        <LinkEl onClick={() => handleCategory("React")}>React Projects</LinkEl>
-        <LinkEl onClick={() => handleCategory("Js")}>Vanila JS Projects</LinkEl>
-        <LinkEl onClick={() => handleCategory("Xd")}>Adobe XD designs</LinkEl>
+        <LinkEl onClick={() => handleCategory("React")}>React</LinkEl>
+        <LinkEl onClick={() => handleCategory("Js")}>HTML, Css & Js</LinkEl>
+        <LinkEl onClick={() => handleCategory("Xd")}>HTML & Css</LinkEl>
       </Links>
       <ContainerItem>
         {filtered.map((element) => (

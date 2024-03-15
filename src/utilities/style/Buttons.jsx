@@ -21,6 +21,7 @@ const zoomOut = keyframes`
 const Buttons = styled(Link)`
   font-size: 13px;
   display: block;
+  margin-left: 10px;
   text-decoration: none;
   width: auto;
   padding: 10px;
@@ -51,6 +52,7 @@ const Buttons = styled(Link)`
     background-color: ${colors.primaryPurpuleHover};
     cursor: pointer;
   }
+  ${(props) => props.contact && `width:150px;`}
   ${(props) =>
     props.secondary &&
     `background-color:transparent;

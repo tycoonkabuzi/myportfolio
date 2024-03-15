@@ -536,7 +536,7 @@ function Header() {
           HTML, CSS, and JavaScript also using React.js, to bring ideas to life
           on the web.
         </Paragraph>
-        <Buttons to="#contact" primary theAnimation={animate}>
+        <Buttons contact to="#contact" primary theAnimation={animate}>
           Contact me
         </Buttons>
       </Text>
